@@ -63,18 +63,18 @@
 
             <Button
                 android:id="@+id/btnExcited"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_weight="1.2"
+                android:layout_width="22dp"
+                android:layout_height="60dp"
                 android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
                 android:background="@drawable/Excited"
 
                 />
 
             <Button
                 android:id="@+id/btnHappy"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_width="37dp"
+                android:layout_height="58dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/happy"
@@ -83,9 +83,9 @@
 
             <Button
                 android:id="@+id/btnCalm"
-                android:layout_width="0dp"
+                android:layout_width="39dp"
+                android:layout_height="57dp"
                 android:layout_marginRight="10dp"
-                android:layout_height="70dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/calm"
 
@@ -104,28 +104,28 @@
 
             <Button
                 android:id="@+id/btnAngry"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_weight="1.2"
+                android:layout_width="20dp"
+                android:layout_height="48dp"
                 android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
                 android:background="@drawable/angry"
 
                 />
 
             <Button
                 android:id="@+id/btnSurprised"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_weight="1.2"
+                android:layout_width="35dp"
+                android:layout_height="53dp"
                 android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
                 android:background="@drawable/surprised"
 
                 />
 
             <Button
                 android:id="@+id/btnSad"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_width="51dp"
+                android:layout_height="50dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/sad"
@@ -145,18 +145,18 @@
 
             <Button
                 android:id="@+id/btnGrateful"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
-                android:layout_weight="1.2"
+                android:layout_width="17dp"
+                android:layout_height="58dp"
                 android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
                 android:background="@drawable/grateful"
 
                 />
 
             <Button
                 android:id="@+id/btnConfused"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_width="28dp"
+                android:layout_height="56dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/confused"
@@ -165,8 +165,8 @@
 
             <Button
                 android:id="@+id/btnSleepy"
-                android:layout_width="0dp"
-                android:layout_height="70dp"
+                android:layout_width="42dp"
+                android:layout_height="59dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/Sleepy"
@@ -182,12 +182,14 @@
 
     <Button
         android:id="@+id/btnNext"
-        android:layout_width="140dp"
+        android:layout_width="400dp"
         android:layout_height="75dp"
         android:background="@drawable/roundbutons"
-        android:layout_marginLeft="275dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="20dp"
-        android:text="Next" />
+        android:text="Mood Checkins"
+        android:textSize="30sp"/>
 
 
 

@@ -45,4 +45,14 @@
         android:name="com.example.mentalhealth.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.mentalhealth.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" />
+    <fragment
+        android:id="@+id/exitFragment"
+        android:name="com.example.mentalhealth.ExitFragment"
+        android:label="fragment_exit"
+        tools:layout="@layout/fragment_exit" />
 </navigation>

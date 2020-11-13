@@ -16,6 +16,7 @@ interface RecDAO {
     @Query("DELETE FROM recommendedTable")
     fun deleteAll()
 
+
 //    @Query("DELETE FROM ytTable WHERE name=:cityname")
 //    fun deleteCityByName(cityname: String)
 
