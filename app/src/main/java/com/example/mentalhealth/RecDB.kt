@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [VideoRec::class], version = 1)
 abstract class RecDB: RoomDatabase() {
-
+//create a database
     abstract fun recDAO():RecDAO
 
     companion object{ //WeatherDB.INSTANT
