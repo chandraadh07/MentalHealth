@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/videosFragment">
+
+    <fragment
+        android:id="@+id/videosFragment"
+        android:name="com.example.mentalhealth.VideosFragment"
+        android:label="fragment_videos"
+        tools:layout="@layout/fragment_videos" />
+    <fragment
+        android:id="@+id/currentMoodFragment"
+        android:name="com.example.mentalhealth.CurrentMoodFragment"
+        android:label="fragment_current_mood"
+        tools:layout="@layout/fragment_current_mood" />
+    <fragment
+        android:id="@+id/hobbiesFragment"
+        android:name="com.example.mentalhealth.HobbiesFragment"
+        android:label="fragment_hobbies"
+        tools:layout="@layout/fragment_hobbies" />
+    <fragment
+        android:id="@+id/question1Fragment"
+        android:name="com.example.mentalhealth.Question1Fragment"
+        android:label="fragment_question1"
+        tools:layout="@layout/fragment_question1" />
+    <fragment
+        android:id="@+id/question2Fragment"
+        android:name="com.example.mentalhealth.Question2Fragment"
+        android:label="fragment_question2"
+        tools:layout="@layout/fragment_question2" />
+    <fragment
+        android:id="@+id/question3Fragment"
+        android:name="com.example.mentalhealth.Question3Fragment"
+        android:label="fragment_question3"
+        tools:layout="@layout/fragment_question3" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.mentalhealth.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+</navigation>
