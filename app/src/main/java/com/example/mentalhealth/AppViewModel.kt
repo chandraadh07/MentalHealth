@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 // Preferences to keep track of local questionnaire and hobby data
 
 class AppViewModel: ViewModel() {
+    // Ava added comment here
     val ytVideoList = MutableLiveData<Array<VideoYT>>()
     val watchedVideoList = MutableLiveData<Array<VideoWatched>>()
     val recVideoList = MutableLiveData<Array<VideoRec>>()
