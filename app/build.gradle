@@ -56,4 +56,6 @@ dependencies {
     kapt 'androidx.room:room-compiler:2.2.5'
     //youtube dependency
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+    //for bubble pickers
+    compile 'com.github.igalata:Bubble-Picker:v0.2.4'
 }   

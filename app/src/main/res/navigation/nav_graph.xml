@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/videosFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/videosFragment"
@@ -40,4 +40,9 @@
         android:name="com.example.mentalhealth.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mentalhealth.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>
