@@ -9,7 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val youTubePlayerView : YouTubePlayerView = findViewById(R.id.youtube_player_view)
         lifecycle.addObserver(youTubePlayerView)
     }
