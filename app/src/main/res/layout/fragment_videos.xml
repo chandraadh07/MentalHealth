@@ -6,7 +6,6 @@
     android:background="#495167"
     tools:context="com.example.mentalhealth.VideosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:id="@+id/youtube_player_view"
@@ -23,7 +22,7 @@
         tools:layout_editor_absoluteY="79dp" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/txtVideoTitle"
         android:layout_width="249dp"
         android:layout_height="50dp"
         android:text="Cat compilation"
@@ -34,7 +33,7 @@
         tools:layout_editor_absoluteY="408dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtVideoDuration"
         android:layout_width="108dp"
         android:layout_height="21dp"
         android:text="3 hours long"

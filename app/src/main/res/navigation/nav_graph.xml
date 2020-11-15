@@ -55,4 +55,9 @@
         android:name="com.example.mentalhealth.ExitFragment"
         android:label="fragment_exit"
         tools:layout="@layout/fragment_exit" />
+    <fragment
+        android:id="@+id/buttonsFragment"
+        android:name="com.example.mentalhealth.ButtonsFragment"
+        android:label="fragment_buttons"
+        tools:layout="@layout/fragment_buttons" />
 </navigation>
