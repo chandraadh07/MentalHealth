@@ -32,7 +32,7 @@ import androidx.recyclerview.widget.RecyclerView
 //
 //        //        val i=PosterLoader.getInstance()
 //        fun bind(movie: Movie) {
-//            
+//
 //            view.setOnClickListener{
 //                deleteLambda(Movie())
 //            }
