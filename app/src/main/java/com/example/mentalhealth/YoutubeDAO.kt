@@ -7,7 +7,7 @@ interface YoutubeDAO {
     @Query("Select * FROM ytTable")
     fun getAll():Array<VideoYT>
 
-    @Insert(onConflict=OnConflictStrategy.REPLACE)
+    @Insert(onConflict=OnConflictStrategy.IGNORE)
     fun insert(video: VideoYT)
 
     @Delete
@@ -15,8 +15,5 @@ interface YoutubeDAO {
 
     @Query("DELETE FROM ytTable")
     fun deleteAll()
-
-//    @Query("DELETE FROM ytTable WHERE name=:cityname")
-//    fun deleteCityByName(cityname: String)
 
 }

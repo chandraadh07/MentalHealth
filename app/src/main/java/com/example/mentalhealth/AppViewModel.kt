@@ -51,18 +51,18 @@ class AppViewModel: ViewModel() {
     fun addToRecommended(vid: VideoYT) {
         val addedVid = VideoRec()
         addedVid.videoId = vid.videoId
-        addedVid.embedUrl = vid.embedUrl
-        addedVid.videoUrl = vid.videoUrl
-        addedVid.channelId = vid.channelId
+//        addedVid.embedUrl = vid.embedUrl
+//        addedVid.videoUrl = vid.videoUrl
+//        addedVid.channelId = vid.channelId
         addedVid.title = vid.title
         addedVid.description = vid.description
         addedVid.tags = vid.tags
         addedVid.style = vid.style
         addedVid.provisions = vid.provisions
-        addedVid.publishedAt = vid.publishedAt
-        addedVid.viewCount = vid.viewCount
-        addedVid.likeCount = vid.likeCount
-        addedVid.dislikeCount = vid.dislikeCount
+//        addedVid.publishedAt = vid.publishedAt
+//        addedVid.viewCount = vid.viewCount
+//        addedVid.likeCount = vid.likeCount
+//        addedVid.dislikeCount = vid.dislikeCount
         addedVid.duration = vid.duration
 
         recDatabase.value?.recDAO()?.insert(addedVid)
