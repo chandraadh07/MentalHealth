@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,7 +36,44 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        // read in data about provisions
+        // read in user responses to "check-ins"
+        // findProvisions(provision_data, userResults)
+
         return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    fun findProvisions(provisionCoords: Map<String, List<Double>> , userResults: List<Double>): List<String> {
+        // Matches a provision(s) with the user based on their questionnaire results.
+        // Uses xyz distance formula to calculate which provision(s) the user's emotion score
+        // is closest to on a 3d plane of boredom, stress, and loneliness.
+
+        // Create x,y,z coordinate for user's emotion scores
+        val userCoord = listOf((userResults[0]/21)*100,(userResults[1]/21)*100,(userResults[2]/21)*100)
+        val userDistances: MutableMap<String, Double> = mutableMapOf()// list of distances between user score and each provision
+
+        // Calculate and store distances
+        for ((prov, coord) in provisionCoords) {
+            var x1 = userCoord[0]
+            var y1 = userCoord[1]
+            var z1 = userCoord[2]
+
+            var x2 = coord[0]
+            var y2 = coord[1]
+            var z2 = coord[2]
+
+            var result = sqrt((x2 - x1).pow(2)+(y2 - y1).pow(2)+(z2 - z1).pow(2))
+            userDistances[prov] = result
+        }
+
+        // Sort distances ascending
+        userDistances.toList()
+            .sortedBy { (key,value)->value }
+            .toMap()
+
+        // Get and return lowest two distances
+        return userDistances.keys.toList().slice(0..1)
     }
 
     companion object {
