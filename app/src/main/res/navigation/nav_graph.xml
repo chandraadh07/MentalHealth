@@ -21,20 +21,23 @@
         android:label="fragment_hobbies"
         tools:layout="@layout/fragment_hobbies" />
     <fragment
-        android:id="@+id/question1Fragment"
-        android:name="com.example.mentalhealth.Question1Fragment"
-        android:label="fragment_question1"
-        tools:layout="@layout/fragment_question1" />
-    <fragment
         android:id="@+id/question2Fragment"
         android:name="com.example.mentalhealth.Question2Fragment"
         android:label="fragment_question2"
-        tools:layout="@layout/fragment_question2" />
+        tools:layout="@layout/fragment_question2" >
+        <action
+            android:id="@+id/action_question2Fragment_to_question3Fragment"
+            app:destination="@id/question3Fragment" />
+    </fragment>
     <fragment
         android:id="@+id/question3Fragment"
         android:name="com.example.mentalhealth.Question3Fragment"
         android:label="fragment_question3"
-        tools:layout="@layout/fragment_question3" />
+        tools:layout="@layout/fragment_question3" >
+        <action
+            android:id="@+id/action_question3Fragment_to_question4Fragment"
+            app:destination="@id/question4Fragment" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.example.mentalhealth.HistoryFragment"
@@ -44,12 +47,20 @@
         android:id="@+id/homeFragment"
         android:name="com.example.mentalhealth.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_videosFragment"
+            app:destination="@id/videosFragment" />
+    </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.mentalhealth.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/exitFragment"
         android:name="com.example.mentalhealth.ExitFragment"
@@ -59,5 +70,32 @@
         android:id="@+id/buttonsFragment"
         android:name="com.example.mentalhealth.ButtonsFragment"
         android:label="fragment_buttons"
-        tools:layout="@layout/fragment_buttons" />
+        tools:layout="@layout/fragment_buttons" >
+        <action
+            android:id="@+id/action_buttonsFragment_to_question2Fragment"
+            app:destination="@id/question2Fragment" />
+        <action
+            android:id="@+id/action_buttonsFragment_to_hobbiesFragment"
+            app:destination="@id/hobbiesFragment" />
+        <action
+            android:id="@+id/action_buttonsFragment_to_currentMoodFragment"
+            app:destination="@id/currentMoodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/question4Fragment"
+        android:name="com.example.mentalhealth.Question4Fragment"
+        android:label="fragment_question4"
+        tools:layout="@layout/fragment_question4" />
+    <action
+        android:id="@+id/action_global_historyFragment"
+        app:destination="@id/historyFragment" />
+    <action
+        android:id="@+id/action_global_buttonsFragment"
+        app:destination="@id/buttonsFragment" />
+    <action
+        android:id="@+id/action_global_homeFragment"
+        app:destination="@id/homeFragment" />
+    <action
+        android:id="@+id/action_global_exitFragment"
+        app:destination="@id/exitFragment" />
 </navigation>

@@ -22,6 +22,7 @@ class VideoRec {
     //var dislikeCount = 0
     var duration = 0
 
+
     //information unique to app videos_view
     var isLiked = false
     var isDisliked = false
