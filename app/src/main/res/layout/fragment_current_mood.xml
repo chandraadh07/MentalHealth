@@ -1,197 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E7DC"
+    android:orientation="vertical"
+    tools:context=".CurrentMoodFragment">
+
+
+    <Button
+        android:id="@+id/btngoBack"
+        android:layout_width="106dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="-6dp"
+        android:layout_weight="1"
+        android:background="#EA9696"
+        android:text="X"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="330dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight=".5"
+        android:text="Question 2/3"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_weight="6"
+        android:background="#FFA69E"
         android:orientation="vertical"
-        android:background="@drawable/round_corners"
-        tools:context=".CurrentMoodFragment">
-
-
-        <Button
-            android:id="@+id/btngoBack"
-            android:layout_width="106dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="-6dp"
-            android:background="@drawable/roundbutons"
-            android:text="X"
-            android:textSize="30sp" />
+        android:paddingRight="100dp">
 
         <TextView
-            android:layout_marginTop="20dp"
-            android:id="@+id/textView4"
-            android:textColor="#ffffff"
-            android:layout_width="330dp"
-            android:layout_height="0dp"
-            android:layout_weight=".5"
-            android:text="Question 2/3"
-            android:textSize="20sp" />
-
-        <LinearLayout
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="vertical"
-            android:paddingRight="100dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp"
-            android:background="@drawable/forquestions"
-            android:layout_weight="6"
-            android:layout_marginBottom="40dp"
-            >
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".5"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:textColor="#3b546f"
-                android:text="How are you feeling today?"
-                android:textSize="30sp" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight=".5"
+            android:text="How are you feeling today?"
+            android:textColor="#3b546f"
+            android:textSize="30sp" />
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".5"
-                android:id="@+id/firstrow"
-                android:layout_marginLeft="50dp"
-                android:orientation="horizontal">
+        <LinearLayout
+            android:id="@+id/firstrow"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="50dp"
+            android:layout_weight=".5"
+            android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnExcited"
-                    android:layout_width="47dp"
-                    android:layout_height="62dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1.2"
-                    android:background="@drawable/excited"
+            <Button
+                android:id="@+id/btnExcited"
+                android:layout_width="47dp"
+                android:layout_height="62dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/excited"
 
-                    />
+                />
 
-                <Button
-                    android:id="@+id/btnHappy"
-                    android:layout_width="37dp"
-                    android:layout_height="58dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1.2"
-                    android:background="@drawable/happy"
+            <Button
+                android:id="@+id/btnHappy"
+                android:layout_width="37dp"
+                android:layout_height="58dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/happy"
 
-                    />
+                />
 
-                <Button
-                    android:id="@+id/btnCalm"
-                    android:layout_width="39dp"
-                    android:layout_height="57dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1.2"
-                    android:background="@drawable/calm"
+            <Button
+                android:id="@+id/btnCalm"
+                android:layout_width="39dp"
+                android:layout_height="57dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/calm"
 
-                    />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".5"
-                android:layout_marginLeft="50dp"
-                android:id="@+id/secondrow"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnAngry"
-                    android:layout_width="20dp"
-                    android:layout_height="48dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1.2"
-                    android:background="@drawable/angry"
-
-                    />
-
-                <Button
-                    android:id="@+id/btnSurprised"
-                    android:layout_width="35dp"
-                    android:layout_height="53dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1.2"
-                    android:background="@drawable/surprised"
-
-                    />
-
-                <Button
-                    android:id="@+id/btnSad"
-                    android:layout_width="51dp"
-                    android:layout_height="50dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1.2"
-                    android:background="@drawable/sad"
-
-                    />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight=".5"
-                android:id="@+id/thirdRow"
-                android:layout_marginLeft="50dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnGrateful"
-                    android:layout_width="17dp"
-                    android:layout_height="58dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1.2"
-                    android:background="@drawable/grateful"
-
-                    />
-
-                <Button
-                    android:id="@+id/btnConfused"
-                    android:layout_width="28dp"
-                    android:layout_height="56dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1.2"
-                    android:background="@drawable/confused"
-
-                    />
-
-                <Button
-                    android:id="@+id/btnSleepy"
-                    android:layout_width="42dp"
-                    android:layout_height="59dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1.2"
-                    android:background="@drawable/sleepy"
-
-                    />
-
-
-
-            </LinearLayout>
+                />
 
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_width="400dp"
-            android:layout_height="75dp"
-            android:background="@drawable/roundbutons"
-            android:layout_marginLeft="5dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
-            android:text="Mood Checkins"
-            android:textSize="30sp"/>
+        <LinearLayout
+            android:id="@+id/secondrow"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="50dp"
+            android:layout_weight=".5"
+            android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/btnAngry"
+                android:layout_width="20dp"
+                android:layout_height="48dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/angry"
+
+                />
+
+            <Button
+                android:id="@+id/btnSurprised"
+                android:layout_width="35dp"
+                android:layout_height="53dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/surprised"
+
+                />
+
+            <Button
+                android:id="@+id/btnSad"
+                android:layout_width="51dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/sad"
+
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/thirdRow"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="50dp"
+            android:layout_weight=".5"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnGrateful"
+                android:layout_width="17dp"
+                android:layout_height="58dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/grateful"
+
+                />
+
+            <Button
+                android:id="@+id/btnConfused"
+                android:layout_width="28dp"
+                android:layout_height="56dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/confused"
+
+                />
+
+            <Button
+                android:id="@+id/btnSleepy"
+                android:layout_width="42dp"
+                android:layout_height="59dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1.2"
+                android:background="@drawable/sleepy"
+
+                />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="400dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#EA9696"
+        android:text="Mood Checkins"
+        android:textSize="30sp" />
+
+
+</LinearLayout>
