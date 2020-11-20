@@ -31,7 +31,7 @@ class HomeFragment : Fragment() {
             val map = emptyMap<String, List<Double>>()
 
             // findProvisions(provision_data, userResults)
-            findProvisions(map,results)
+            //findProvisions(map,results)
         }
     }
 

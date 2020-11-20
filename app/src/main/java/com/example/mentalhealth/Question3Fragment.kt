@@ -1,32 +1,63 @@
 package com.example.mentalhealth
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_question2.*
+import kotlinx.android.synthetic.main.fragment_question3.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Question3Fragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Question3Fragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        loadData()
+
+        //check in data saved when next button clicked
+        btnNext_Question2.setOnClickListener{
+            saveData()
+            findNavController().navigate(R.id.action_question3Fragment_to_question4Fragment)
         }
+    }
+
+    fun loadData(){
+        // finding preferences
+        val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
+
+        //making buttons show what they did before
+        when (sharedPreferences?.getFloat("r2", 0.0F)){
+            1.0F -> rbStronglyDisagree2.isChecked = true
+            2.0F -> rbDisagree2.isChecked = true
+            3.0F -> rbNeutral2.isChecked = true
+            4.0F -> rbAgree2.isChecked = true
+            5.0F -> rbStronglyAgree2.isChecked = true
+        }
+    }
+
+    fun saveData(){
+        // finding preferences
+        val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
+
+        var r2 = 0.0F
+        when {
+            rbStronglyDisagree2.isChecked -> r2 = 1.0F
+            rbDisagree2.isChecked -> r2 = 2.0F
+            rbNeutral2.isChecked -> r2 = 3.0F
+            rbAgree2.isChecked -> r2 = 4.0F
+            rbStronglyAgree2.isChecked -> r2 = 5.0F
+        }
+
+        val editor = sharedPreferences?.edit()
+        editor?.apply{
+            putFloat("r2", r2)
+        }?.apply()
+
+        Toast.makeText(activity, "response saved", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateView(
@@ -37,23 +68,4 @@ class Question3Fragment : Fragment() {
         return inflater.inflate(R.layout.fragment_question3, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Question3Fragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Question3Fragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

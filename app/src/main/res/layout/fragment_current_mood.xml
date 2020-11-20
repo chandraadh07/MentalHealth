@@ -19,19 +19,9 @@
         android:text="X"
         android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="330dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight=".5"
-        android:layout_marginLeft="10dp"
-        android:text="Question 2/3"
-        android:textColor="#000000"
-        android:textSize="20sp" />
-
 
     <LinearLayout
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="40dp"
@@ -65,7 +55,7 @@
 
             <Button
                 android:id="@+id/btnExcited"
-                android:layout_width="47dp"
+                android:layout_width="62dp"
                 android:layout_height="62dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
@@ -75,8 +65,8 @@
 
             <Button
                 android:id="@+id/btnHappy"
-                android:layout_width="37dp"
-                android:layout_height="58dp"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/happy"
@@ -85,8 +75,8 @@
 
             <Button
                 android:id="@+id/btnCalm"
-                android:layout_width="39dp"
-                android:layout_height="57dp"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/calm"
@@ -106,8 +96,8 @@
 
             <Button
                 android:id="@+id/btnAngry"
-                android:layout_width="47dp"
-                android:layout_height="52dp"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/angry"
@@ -116,8 +106,8 @@
 
             <Button
                 android:id="@+id/btnSurprised"
-                android:layout_width="57dp"
-                android:layout_height="56dp"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/surprised"
@@ -126,8 +116,8 @@
 
             <Button
                 android:id="@+id/btnSad"
-                android:layout_width="65dp"
-                android:layout_height="50dp"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/sad"
@@ -147,8 +137,8 @@
 
             <Button
                 android:id="@+id/btnGrateful"
-                android:layout_width="49dp"
-                android:layout_height="57dp"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/grateful"
@@ -157,8 +147,8 @@
 
             <Button
                 android:id="@+id/btnConfused"
-                android:layout_width="58dp"
-                android:layout_height="59dp"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/confused"
@@ -167,29 +157,39 @@
 
             <Button
                 android:id="@+id/btnSleepy"
-                android:layout_width="57dp"
-                android:layout_height="58dp"
+                android:layout_width="62dp"
+                android:layout_height="62dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1.2"
                 android:background="@drawable/sleepy"
 
                 />
-
-
         </LinearLayout>
-
 
     </LinearLayout>
 
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/text_emotion"
+        android:layout_width="330dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight=".5"
+        android:textAlignment="center"
+        android:layout_marginLeft="10dp"
+        android:text="select a mood"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
     <Button
-        android:id="@+id/btnNext"
+        android:id="@+id/btnMoodCheckIns"
         android:layout_width="400dp"
         android:layout_height="75dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/roundbutonsforemotionsbutons"
-        android:text="Mood Checkins"
+        android:text="Mood Check-Ins"
         android:textSize="30sp" />
 
 

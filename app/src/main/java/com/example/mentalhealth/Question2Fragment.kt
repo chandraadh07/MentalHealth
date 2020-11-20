@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_question2.*
 
 class Question2Fragment : Fragment() {
@@ -20,6 +21,7 @@ class Question2Fragment : Fragment() {
         //check in data saved when next button clicked
         btnNext_Question1.setOnClickListener{
             saveData()
+            findNavController().navigate(R.id.action_question2Fragment_to_question3Fragment)
         }
     }
 

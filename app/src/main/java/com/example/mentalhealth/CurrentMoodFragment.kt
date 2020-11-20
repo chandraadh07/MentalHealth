@@ -1,32 +1,111 @@
 package com.example.mentalhealth
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_current_mood.*
+import kotlinx.android.synthetic.main.fragment_question4.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CurrentMoodFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CurrentMoodFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    var mood = ""
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        loadData()
+
+        btnExcited.setOnClickListener{
+            mood = "excited"
+            text_emotion.text = "I feel " + mood + " right now"
         }
+
+        btnHappy.setOnClickListener{
+            mood = "happy"
+            text_emotion.text = "I feel " + mood + " right now"
+        }
+
+        btnCalm.setOnClickListener{
+            mood = "calm"
+            text_emotion.text = "I feel " + mood + " right now"
+        }
+
+        btnAngry.setOnClickListener{
+            mood = "angry"
+            text_emotion.text = "I feel " + mood + " right now"
+        }
+
+        btnSurprised.setOnClickListener{
+            mood = "surprised"
+            text_emotion.text = "I feel " + mood + " right now"
+        }
+
+        btnSad.setOnClickListener{
+            mood = "sad"
+            text_emotion.text = "I feel " + mood + " right now"
+        }
+
+        btnGrateful.setOnClickListener{
+            mood = "grateful"
+            text_emotion.text = "I feel " + mood + " right now"
+        }
+
+        btnConfused.setOnClickListener{
+            mood = "confused"
+            text_emotion.text = "I feel " + mood + " right now"
+        }
+
+        btnSleepy.setOnClickListener{
+            mood = "sleepy"
+            text_emotion.text = "I feel " + mood + " right now"
+        }
+
+        //check in data saved when next button clicked
+        btnMoodCheckIns.setOnClickListener{
+            saveData()
+            findNavController().navigate(R.id.action_global_buttonsFragment)
+        }
+    }
+
+    fun loadData(){
+        // finding preferences
+        val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
+
+        //getting the emotion from preferences and setting the text to have it
+        when (sharedPreferences?.getString("mood", "")){
+            "excited" -> mood = "excited"
+            "happy" -> mood = "happy"
+            "calm" -> mood = "calm"
+            "angry" -> mood = "angry"
+            "surprised" -> mood = "surprised"
+            "sad" -> mood = "sad"
+            "grateful" -> mood = "grateful"
+            "confused" -> mood = "confused"
+            "sleepy" -> mood = "sleepy"
+        }
+        if (mood != ""){
+            text_emotion.text = "I feel " + mood + " right now"
+        } else {
+            text_emotion.text = "Click an emoji which best represents your current mood."
+        }
+    }
+
+    fun saveData(){
+        // finding preferences
+        val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
+
+        // assigns the current mood to the mood preference
+        val editor = sharedPreferences?.edit()
+        editor?.apply{
+            putString("mood", mood)
+        }?.apply()
+
+        Toast.makeText(activity, "current mood saved", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateView(
@@ -35,25 +114,5 @@ class CurrentMoodFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_current_mood, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CurrentMoodFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CurrentMoodFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }
