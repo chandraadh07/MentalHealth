@@ -1,5 +1,6 @@
 package com.example.mentalhealth
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -15,24 +16,30 @@ class MainActivity : AppCompatActivity() {
         val youTubePlayerView : YouTubePlayerView = findViewById(R.id.youtube_player_view)
         lifecycle.addObserver(youTubePlayerView)
 
-        loadData()
+        viewModel.database.value = YoutubeDB.getDBObject(this)
+
+        //checking if the database is empty
+        val list = viewModel.database.value?.youtubeDAO()?.getAll()
+
+        if (list.isNullOrEmpty()){
+            loadData()
+        }
     }
 
     //creates a YT vid for everything in the csv
-    fun makeVideo(line: String): VideoYT {
+    fun makeVideo(line: String): Video {
         val cells = line.split(",")
-        val vid = VideoYT()
+        val vid = Video()
         //passing restaurant values from data csv file
-        vid.videoId = cells[0]
+        vid.videoID = cells[0]
         vid.title = cells[1]
-        vid.description = cells[2]
         vid.tags = cells[3].split(" ").toTypedArray()
         vid.style = cells[4]
         vid.provisions = cells[5].split(" ").toTypedArray()
         vid.duration = cells[6].toInt()
         vid.isLiked = false
         vid.isDisliked = false
-        vid.mood = cells[7].split(" ").toTypedArray()
+        vid.moods = cells[7].split(" ").toTypedArray()
 
         return vid
     }
@@ -47,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         lines = lines.subList(1, lines.size) // get rid of the header line
         //Add to the stock Array.
         lines.forEach {
-            viewModel.ytDatabase.value?.youtubeDAO()?.insert(makeVideo(it))
+            viewModel.database.value?.youtubeDAO()?.insert(makeVideo(it))
         }
     }
 }
