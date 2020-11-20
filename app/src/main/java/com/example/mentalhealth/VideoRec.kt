@@ -13,9 +13,9 @@ class VideoRec {
     //var channelId = "chID undefined"
     var title = "title undefined"
     var description = "description undefined"
-    var tags = emptyArray<String>()
+    var tags = emptyList<String>()
     var style = "style undefined"
-    var provisions = emptyArray<String>()
+    var provisions = emptyList<String>()
     //var publishedAt = "pub date undefined"
    // var viewCount = 0
     //var likeCount = 0
