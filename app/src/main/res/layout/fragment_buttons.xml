@@ -7,7 +7,7 @@
 
     android:orientation="vertical"
 
-    tools:context=".Question2Fragment">
+    tools:context=".ButtonsFragment">
 
     <Button
         android:id="@+id/button12"
@@ -15,9 +15,10 @@
         android:layout_height="0dp"
         android:layout_marginLeft="-6dp"
         android:layout_weight="1"
-        android:background="@drawable/roundbutons"
         android:text="X"
         android:textSize="30sp" />
+<!--        android:background="@drawable/roundbutons"-->
+
 
 
     <LinearLayout
@@ -28,8 +29,9 @@
         android:layout_marginRight="40dp"
         android:layout_marginBottom="90dp"
         android:layout_weight="7"
-        android:background="@drawable/forquestions"
         android:orientation="vertical">
+<!--        android:background="@drawable/forquestions"-->
+
 
         <TextView
             android:id="@+id/txtMainpage"
@@ -51,11 +53,12 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_weight=".8"
-            android:background="@drawable/roundbutonsforhobbies"
             android:text="Hobbies"
 
 
             android:textSize="30sp" />
+<!--            android:background="@drawable/roundbutonsforhobbies"-->
+
 
         <Button
             android:id="@+id/btnCurrentMood"
@@ -65,9 +68,10 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_weight=".8"
-            android:background="@drawable/roundbutonsforemotions"
             android:text="Current Mood"
             android:textSize="30sp" />
+<!--            android:background="@drawable/roundbutonsforemotions"-->
+
 
         <Button
             android:id="@+id/btnQuiz"
@@ -77,9 +81,10 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_weight=".8"
-            android:background="@drawable/roundbutonsforquestions"
             android:text="Questionnaire"
             android:textSize="30sp" />
+<!--            android:background="@drawable/roundbutonsforquestions"-->
+
 
 
     </LinearLayout>
