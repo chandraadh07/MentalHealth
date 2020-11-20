@@ -19,7 +19,6 @@
 
 <!--            <item-->
 <!--                android:id="@+id/home_menu"-->
-<!--                app:showAsAction="always"-->
 <!--                android:title="Home"-->
 <!--                android:icon="@drawable/ic_baseline_home_24"-->
 <!--                />-->
@@ -27,14 +26,12 @@
 
 <!--            <item-->
 <!--                android:id="@+id/history_menu"-->
-<!--                app:showAsAction="always"-->
 <!--                android:title="History"-->
 <!--                android:icon="@drawable/ic_baseline_history_24"-->
 <!--                />-->
 
 <!--            <item-->
 <!--                android:id="@+id/Questionnaire_menu"-->
-<!--                app:showAsAction="always"-->
 <!--                android:title="Questionnaire"-->
 <!--                android:icon="@drawable/quiz"-->
 <!--                />-->
