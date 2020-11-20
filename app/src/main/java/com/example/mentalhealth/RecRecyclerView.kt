@@ -1,14 +1,14 @@
-package com.example.mentalhealth
-
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-
-//        class RecyclerViewAdapter(var videoeArray: Array<VideoRec>) :
+//package com.example.mentalhealth
+//
+//import android.view.LayoutInflater
+//import android.view.View
+//import android.view.ViewGroup
+//import android.widget.ImageView
+//import android.widget.RatingBar
+//import android.widget.TextView
+//import androidx.recyclerview.widget.RecyclerView
+//
+//        class RecyclerViewAdapter(var videoeArray: Array<Video>) :
 //            RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder>() {
 //
 //            override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
@@ -25,18 +25,18 @@ import androidx.recyclerview.widget.RecyclerView
 //                holder.bind(videoeArray[position])
 //            }
 //
-//            lateinit var clickLambda: (VideoRec) -> Unit
+//            lateinit var clickLambda: (Video) -> Unit
 //
-//            class RecyclerViewHolder(val viewItem: View, val clickLambda: (VideoRec) -> Unit) :
+//            class RecyclerViewHolder(val viewItem: View, val clickLambda: (Video) -> Unit) :
 //                RecyclerView.ViewHolder(viewItem) {
 //
-//                fun bind(movie: VideoRec) {
+//                fun bind(movie: Video) {
 //
 //
 //
 //
 //                    viewItem.setOnClickListener{
-//                        clickLambda(VideoRec())
+//                        clickLambda(Video())
 //                    }
 //
 //

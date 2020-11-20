@@ -3,8 +3,13 @@ package com.example.mentalhealth
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.navigation.fragment.NavHostFragment
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     val viewModel:AppViewModel by viewModels<AppViewModel>()
@@ -13,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val youTubePlayerView : YouTubePlayerView = findViewById(R.id.youtube_player_view)
-        lifecycle.addObserver(youTubePlayerView)
+//        val youTubePlayerView : YouTubePlayerView = findViewById(R.id.youtube_player_view)
+//        lifecycle.addObserver(youTubePlayerView)
 
         viewModel.database.value = YoutubeDB.getDBObject(this)
 
@@ -33,13 +38,13 @@ class MainActivity : AppCompatActivity() {
         //passing restaurant values from data csv file
         vid.videoID = cells[0]
         vid.title = cells[1]
-        vid.tags = cells[3].split(" ").toTypedArray()
+        vid.tags = cells[3]
         vid.style = cells[4]
-        vid.provisions = cells[5].split(" ").toTypedArray()
+        vid.provisions = cells[5]
         vid.duration = cells[6].toInt()
         vid.isLiked = false
         vid.isDisliked = false
-        vid.moods = cells[7].split(" ").toTypedArray()
+        vid.moods = cells[7]
 
         return vid
     }
@@ -57,4 +62,45 @@ class MainActivity : AppCompatActivity() {
             viewModel.database.value?.youtubeDAO()?.insert(makeVideo(it))
         }
     }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_home, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.search_icon -> {
+
+//                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_styleFragment) //change this later
+                true
+            }
+            R.id.main_menu->{
+             NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_buttonsFragment) //change this later
+
+                true
+            }
+//            R.id.home_menu->{
+//                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_homeFragment) //change this later
+//
+//                true
+//            }
+//            R.id.history_menu->{
+//                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_historyFragment) //change this later
+//
+//                true
+//            }
+//            R.id.Questionnaire_menu->{
+//                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_buttonsFragment) //change this later
+//                        true
+//            }
+
+
+            else -> super.onOptionsItemSelected(item)
+        }
+
+    }
+
+
 }

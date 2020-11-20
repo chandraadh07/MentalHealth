@@ -57,5 +57,5 @@ dependencies {
     //youtube dependency
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
     //for bubble pickers
-    compile 'com.github.igalata:Bubble-Picker:v0.2.4'
+   implementation 'com.github.igalata:Bubble-Picker:v0.2.4'
 }   
