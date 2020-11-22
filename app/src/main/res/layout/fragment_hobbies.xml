@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/round_corners"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <Spinner
-        android:layout_width="250dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="150dp"
-        android:id="@+id/action_bar_spinner"
-        />
-
-
-
-    <com.igalata.bubblepicker.rendering.BubblePicker
-        android:id="@+id/picker"
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:backgroundColor="@android:color/white" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/autoTextView"
+        android:hint="Enter fruit name"
+        android:textColor="#000000"
+        android:textColorHint="#000000" />
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        app:cardBackgroundColor="@color/colorAccent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:layout_marginTop="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/autoTextView"
+        app:cardCornerRadius="35dp">
+
+
+        <TextView
+            android:id="@+id/hobby_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="#00FFFFFF"
+            android:fontFamily="sans-serif"
+            android:text="Boop"
+            android:textSize="17dp" />
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

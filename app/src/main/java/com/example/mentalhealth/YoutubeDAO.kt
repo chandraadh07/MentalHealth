@@ -26,19 +26,22 @@ interface YoutubeDAO {
     @Query("DELETE FROM videoTable")
     fun deleteAll()
 
-    /*
-    1. find videos with similar 2 provisions (both at once)
-    2. find videos with similar 5 hobbies (individually)
-    3. find videos with similar 1 mood
 
 
-    1.
-    We need to find out how to write a command that looks at SQL value and sees if it has some
-    combination of two provisions we want (e.g. if we wanted attachment&guidance but it said
-    "attachment reassurance guidance", we want that video still
-    SELECT videoID FROM videoTable WHERE provisions (is like) provision1 provision2
+    @Query("SELECT * FROM videoTable WHERE videoID = :id")
+    fun getVideoByID(id:String):Video
 
-    // 2.
-    // SELECT videoID FROM videoTable WHERE hobbies (is like) :hobby
-    */
+//    1. find videos with similar 2 provisions (both at once)
+//    2. find videos with similar 5 hobbies (individually)
+//    3. find videos with similar 1 mood
+
+    @Query("SELECT videoId FROM videoTable WHERE provisions LIKE :provisions")
+    fun filterByProvisions(provisions: String) :Array<String>
+
+    @Query("SELECT videoId FROM videoTable WHERE keywords LIKE :hobby")
+    fun filterByHobby(hobby: String) :Array<String>
+
+
+    @Query("SELECT videoId FROM videoTable WHERE moods LIKE :mood")
+    fun filterByMood(mood: String) :Array<String>
 }

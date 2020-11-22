@@ -47,4 +47,29 @@ class AppViewModel: ViewModel() {
     fun getWatchedVids(){
         watchedList.value = database.value?.youtubeDAO()?.getAllWatched()
     }
+
+    // for finding recommended video ids
+    fun filterVideos(byProv:Boolean=false,byHob:Boolean=false,byMood:Boolean=false,filter:String): List<String>? {
+        if (byProv){
+            return database.value?.youtubeDAO()?.filterByProvisions(filter)?.toList()
+        }
+        else if (byHob){
+            return database.value?.youtubeDAO()?.filterByHobby(filter)?.toList()
+        }
+        else{
+            return database.value?.youtubeDAO()?.filterByMood(filter)?.toList()
+        }
+    }
+
+    // for translating list of video ids to array of videos
+    // also stores each video as a recommended video
+    fun idsToVideos(videoIds:List<String>):Array<Video>{
+        var result = emptyArray<Video>() as MutableList<Video>
+        videoIds.forEach{
+            val video = database.value?.youtubeDAO()?.getVideoByID(it)
+            markAsRecommended(video!!)
+            result.add(video!!)
+        }
+        return result as Array<Video>
+    }
 }

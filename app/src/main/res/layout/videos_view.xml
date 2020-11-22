@@ -4,7 +4,7 @@
     android:id="@+id/frameLayout"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.mentalhealth.VideosFragment">
 
 
@@ -20,6 +20,10 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             app:autoPlay="false"
+            app:showVideoDuration="false"
+            app:showFullScreenButton="false"
+            app:showVideoCurrentTime="false"
+            app:showSeekBar="false"
             app:showYouTubeButton="false"
             app:videoId="lDosBozB9jw" />
     </FrameLayout>
