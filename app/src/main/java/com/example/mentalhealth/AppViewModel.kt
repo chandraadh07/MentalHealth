@@ -16,10 +16,19 @@ class AppViewModel: ViewModel() {
     // reference to the database
     val database = MutableLiveData<YoutubeDB>()
 
+    // which question fragment has most recently been completed
+    val currentQuestionFrag = MutableLiveData<String>()
+
     init {
+        currentQuestionFrag.value = ""
         currentVideo.value = Video()
         getRecVids()
         getWatchedVids()
+    }
+
+    fun setBackFragTo(fragName: String){
+        currentQuestionFrag.value = fragName
+        currentQuestionFrag.postValue(fragName)
     }
 
     //used when a user clicks on a video to watch

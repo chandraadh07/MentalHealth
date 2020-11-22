@@ -1,5 +1,6 @@
 package com.example.mentalhealth
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -9,22 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_hobbies.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-var hobbyStringArray = ArrayList<String>()
-lateinit var hobbyAdapter: ArrayAdapter<String>
-lateinit var autoTextView : AppCompatAutoCompleteTextView
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-/**
- * A simple [Fragment] subclass.
- * Use the [HobbiesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
     var hobbyStringArray = ArrayList<String>()
     lateinit var hobbyAdapter: ArrayAdapter<String>
@@ -43,18 +33,45 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
         autoTextView.setTextColor(Color.BLUE)
         autoTextView.onItemClickListener = this
 
+        btnDELETE.setOnClickListener {
+            deleteHobbies()
+            hobby_text.text = ""
+        }
+
+        btnBACK.setOnClickListener {
+            findNavController().navigate(R.id.action_global_buttonsFragment)
+        }
     }
 
     override fun onItemClick(adapter: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
 
+        val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
+
         val hobby = adapter?.getItemAtPosition(position) // The item that was clicked
-        //val intent = Intent(this, BookDetailActivity::class.java)
-        //startActivity(intent)
-        hobby_text.text = hobby.toString()
+
         autoTextView.setText("")
+
+        //adding to the preference string
+        val hobbyString = sharedPreferences?.getString("hobbies", "") + " " +
+                hobby.toString()
+
+        // assigns the current mood to the mood preference
+        val editor = sharedPreferences?.edit()
+        editor?.apply{
+            putString("hobbies", hobbyString)
+        }?.apply()
+
+        // updating text
+        hobby_text.text = hobbyString
+
+        //Toast.makeText(activity, "hobbies saved", Toast.LENGTH_SHORT).show()
     }
 
     fun loadData() {
+        // finding preferences
+        val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
+        hobby_text.text = sharedPreferences?.getString("hobbies", "no hobbies added")
+
         val dataString =
             resources.openRawResource(R.raw.keywords).bufferedReader()
                 .use { it.readText() }// read the entire file as a string
@@ -68,16 +85,17 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
         }
     }
 
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    fun deleteHobbies(){
+        // finding preferences
+        val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        // removing the hobbies from the preferences
+        val editor = sharedPreferences?.edit()
+        editor?.apply{
+            putString("hobbies", "")
+        }?.apply()
+
+        Toast.makeText(activity, "hobbies deleted", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateView(
@@ -87,26 +105,4 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_hobbies, container, false)
     }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HobbiesFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HobbiesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
-
-
 }

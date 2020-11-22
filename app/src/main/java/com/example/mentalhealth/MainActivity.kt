@@ -69,31 +69,18 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.search_icon -> {
-
-//                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_styleFragment) //change this later
+            R.id.Questionnaire_menu->{
+                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_buttonsFragment) //change this later
                 true
             }
-            R.id.main_menu->{
-             NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_buttonsFragment) //change this later
-
+            R.id.home_menu->{
+                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_homeFragment) //change this later
                 true
             }
-//            R.id.home_menu->{
-//                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_homeFragment) //change this later
-//
-//                true
-//            }
-//            R.id.history_menu->{
-//                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_historyFragment) //change this later
-//
-//                true
-//            }
-//            R.id.Questionnaire_menu->{
-//                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_buttonsFragment) //change this later
-//                        true
-//            }
-
+            R.id.history_menu->{
+                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_historyFragment) //change this later
+                true
+            }
 
             else -> super.onOptionsItemSelected(item)
         }

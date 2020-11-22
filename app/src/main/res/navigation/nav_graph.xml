@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/welcomeFragment">
 
     <fragment
         android:id="@+id/videosFragment"
@@ -65,7 +65,11 @@
         android:id="@+id/exitFragment"
         android:name="com.example.mentalhealth.ExitFragment"
         android:label="fragment_exit"
-        tools:layout="@layout/fragment_exit" />
+        tools:layout="@layout/fragment_exit" >
+        <action
+            android:id="@+id/action_exitFragment_to_hobbiesFragment"
+            app:destination="@id/hobbiesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/buttonsFragment"
         android:name="com.example.mentalhealth.ButtonsFragment"
@@ -98,4 +102,13 @@
     <action
         android:id="@+id/action_global_exitFragment"
         app:destination="@id/exitFragment" />
+    <action
+        android:id="@+id/action_global_question2Fragment"
+        app:destination="@id/question2Fragment" />
+    <action
+        android:id="@+id/action_global_currentMoodFragment"
+        app:destination="@id/currentMoodFragment" />
+    <action
+        android:id="@+id/action_global_question3Fragment"
+        app:destination="@id/question3Fragment" />
 </navigation>

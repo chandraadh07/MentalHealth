@@ -20,6 +20,10 @@ class ButtonsFragment : Fragment() {
         btnCurrentMood.setOnClickListener{
             findNavController().navigate(R.id.action_buttonsFragment_to_currentMoodFragment)
         }
+
+        btnHobbies.setOnClickListener{
+            findNavController().navigate(R.id.action_buttonsFragment_to_hobbiesFragment)
+        }
     }
 
     override fun onCreateView(

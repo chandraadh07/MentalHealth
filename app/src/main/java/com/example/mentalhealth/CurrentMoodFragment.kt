@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_current_mood.*
 import kotlinx.android.synthetic.main.fragment_question4.*
@@ -15,10 +17,18 @@ class CurrentMoodFragment : Fragment() {
 
     var mood = ""
 
+    val viewModel: AppViewModel by activityViewModels<AppViewModel>()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.setBackFragTo("moods")
+
         loadData()
+
+        btngoBack.setOnClickListener {
+            findNavController().navigate(R.id.action_global_exitFragment)
+        }
 
         btnExcited.setOnClickListener{
             mood = "excited"

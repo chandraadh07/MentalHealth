@@ -19,13 +19,13 @@
         android:textSize="40sp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnToProcessd"
+        app:layout_constraintBottom_toTopOf="@+id/btnToProceed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnToProcessd"
+        android:id="@+id/btnToProceed"
         android:layout_width="300dp"
         android:layout_height="73dp"
         android:layout_marginBottom="200dp"

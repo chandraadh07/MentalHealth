@@ -9,4 +9,5 @@
     <color name="colorPinkDark">#FF686B</color>
     <color name="colorYellow">#FFDF8C</color>
     <color name="colorLight">#E8E7DC</color>
+    <color name="black">#000000</color>
 </resources>

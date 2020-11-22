@@ -2,26 +2,39 @@ package com.example.mentalhealth
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_question2.*
 
 class Question2Fragment : Fragment() {
 
+    val viewModel: AppViewModel by activityViewModels<AppViewModel>()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.setBackFragTo("question2")
+
+        // loads preference data
         loadData()
 
         //check in data saved when next button clicked
         btnNext_Question1.setOnClickListener{
             saveData()
             findNavController().navigate(R.id.action_question2Fragment_to_question3Fragment)
+        }
+
+        button12.setOnClickListener {
+            findNavController().navigate(R.id.action_global_exitFragment)
         }
     }
 

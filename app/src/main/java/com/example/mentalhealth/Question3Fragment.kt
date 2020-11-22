@@ -7,14 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_question2.*
 import kotlinx.android.synthetic.main.fragment_question3.*
+import kotlinx.android.synthetic.main.fragment_question4.*
 
 class Question3Fragment : Fragment() {
 
+    val viewModel: AppViewModel by activityViewModels<AppViewModel>()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.setBackFragTo("question3")
 
         loadData()
 
@@ -22,6 +29,10 @@ class Question3Fragment : Fragment() {
         btnNext_Question2.setOnClickListener{
             saveData()
             findNavController().navigate(R.id.action_question3Fragment_to_question4Fragment)
+        }
+
+        btnExitQuestion2.setOnClickListener {
+            findNavController().navigate(R.id.action_global_exitFragment)
         }
     }
 
