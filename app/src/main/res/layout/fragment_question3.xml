@@ -8,13 +8,12 @@
     android:background="@drawable/round_corners"
 
     tools:context=".Question3Fragment">
-
     <Button
-        android:id="@+id/btnExitQuestion2"
-        android:layout_width="106dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginLeft="-6dp"
+        android:id="@+id/button12"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="left"
         android:background="@drawable/roundbutons"
         android:text="X"
         android:textSize="30sp" />
@@ -23,46 +22,44 @@
         android:layout_marginTop="2dp"
         android:id="@+id/textView4"
         android:textColor="#000000"
-        android:layout_width="330dp"
-        android:layout_height="0dp"
-        android:layout_weight=".6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="70dp"
         android:layout_marginLeft="30dp"
+
         android:text="Question 2/3"
         android:textSize="20sp" />
 
 
-
-
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginTop="10dp"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
+        android:layout_gravity="center_horizontal"
         android:background="@drawable/forquestions"
-        android:layout_weight="8"
-        android:layout_marginBottom="5dp"
         >
 
         <TextView
             android:id="@+id/txtQuestion2"
-            android:layout_width="305dp"
-            android:layout_height="0dp"
-            android:layout_weight="2.5"
-            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
             android:textColor="#3b546f"
             android:text="You feel bored lately."
             android:textSize="30sp" />
 
         <RadioGroup
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3.5"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/rganswer2"
+            android:layout_height="wrap_content"
+            android:id="@+id/rganswer"
             >
 
 
@@ -70,38 +67,40 @@
                 android:id="@+id/rbStronglyDisagree2"
                 android:layout_width="307dp"
                 android:layout_height="44dp"
-                android:textSize="30sp"
-
-                android:text="Strongly Disagree" />
+                android:buttonTint="#FFFFFF"
+                android:checked="false"
+                android:text="Strongly Disagree"
+                android:textSize="30sp" />
 
             <RadioButton
                 android:id="@+id/rbDisagree2"
                 android:layout_width="307dp"
+                android:buttonTint="#FFFFFF"
                 android:layout_height="42dp"
                 android:textSize="30sp"
                 android:text="Disagree" />
 
             <RadioButton
                 android:id="@+id/rbNeutral2"
+                android:buttonTint="#FFFFFF"
                 android:layout_width="313dp"
                 android:layout_height="49dp"
                 android:textSize="30sp"
-
                 android:text="Neutral" />
             <RadioButton
                 android:id="@+id/rbAgree2"
                 android:layout_width="307dp"
                 android:layout_height="42dp"
+                android:buttonTint="#FFFFFF"
                 android:textSize="30sp"
-
                 android:text="Agree" />
 
             <RadioButton
                 android:id="@+id/rbStronglyAgree2"
                 android:layout_width="313dp"
+                android:buttonTint="#FFFFFF"
                 android:layout_height="49dp"
                 android:textSize="30sp"
-
                 android:text="Strongly Agree" />
 
         </RadioGroup>
@@ -114,15 +113,12 @@
 
 
     <Button
-        android:id="@+id/btnNext_Question2"
-        android:layout_width="161dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:id="@+id/btnNext_Question1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:gravity="bottom"
+        android:layout_gravity="right"
         android:background="@drawable/roundbutons"
-        android:layout_marginLeft="260dp"
-        android:layout_marginTop="20dp"
         android:text="Next" />
-
-
 
 </LinearLayout>
