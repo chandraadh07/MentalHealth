@@ -1,15 +1,16 @@
 package com.example.mentalhealth
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
     val viewModel:AppViewModel by viewModels<AppViewModel>()
@@ -27,6 +28,15 @@ class MainActivity : AppCompatActivity() {
         if (list.isNullOrEmpty()){
             loadData()
         }
+
+        Log.e("TAG", "MainActivity was created")
+
+//        list?.forEach {
+//            Log.e(
+//                "TAG",
+//                it.videoID
+//            )//arrayOf(viewModel.database.value?.youtubeDAO()?.getVideoByID("-1io3Ofg8sE")!!)//getRecommendations()
+//        }
     }
 
     //creates a YT vid for everything in the csv
@@ -69,16 +79,19 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.Questionnaire_menu->{
-                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_buttonsFragment) //change this later
+            R.id.Questionnaire_menu -> {
+                NavHostFragment.findNavController(nav_host_frag)
+                    .navigate(R.id.action_global_buttonsFragment) //change this later
                 true
             }
-            R.id.home_menu->{
-                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_homeFragment) //change this later
+            R.id.home_menu -> {
+                NavHostFragment.findNavController(nav_host_frag)
+                    .navigate(R.id.action_global_homeFragment) //change this later
                 true
             }
-            R.id.history_menu->{
-                NavHostFragment.findNavController(nav_host_frag).navigate(R.id.action_global_historyFragment) //change this later
+            R.id.history_menu -> {
+                NavHostFragment.findNavController(nav_host_frag)
+                    .navigate(R.id.action_global_historyFragment) //change this later
                 true
             }
 

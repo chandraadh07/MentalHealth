@@ -2,9 +2,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="400dp"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
     tools:context="com.example.mentalhealth.VideosFragment">
 
 
@@ -15,17 +16,18 @@
         android:foreground="@drawable/bg_rounde"
         android:outlineProvider="background">
 
+<!--        app:videoId="lDosBozB9jw"-->
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:id="@+id/youtube_player_view_item"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            app:autoPlay="false"
-            app:showVideoDuration="false"
             app:showFullScreenButton="false"
-            app:showVideoCurrentTime="false"
             app:showSeekBar="false"
+            app:showVideoCurrentTime="false"
+            app:showVideoDuration="false"
             app:showYouTubeButton="false"
-            app:videoId="lDosBozB9jw" />
+            app:enableLiveVideoUi="true"
+            />
     </FrameLayout>
 
     <androidx.cardview.widget.CardView
@@ -36,6 +38,7 @@
         app:cardBackgroundColor="#A2DDF8"
         app:cardCornerRadius="35dp"
         app:cardUseCompatPadding="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,7 +63,6 @@
                 android:textSize="17dp" />
 
         </LinearLayout>
-
 
 
     </androidx.cardview.widget.CardView>

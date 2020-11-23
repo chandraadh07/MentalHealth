@@ -30,7 +30,6 @@ interface YoutubeDAO {
 
     @Query("SELECT * FROM videoTable WHERE videoID = :id")
     fun getVideoByID(id:String):Video
-
 //    1. find videos with similar 2 provisions (both at once)
 //    2. find videos with similar 5 hobbies (individually)
 //    3. find videos with similar 1 mood

@@ -1,10 +1,17 @@
 package com.example.mentalhealth
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.observe
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import kotlinx.android.synthetic.main.fragment_videos.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +28,7 @@ class VideosFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    val viewModel: AppViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,6 +43,25 @@ class VideosFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_videos, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        var video: Video? = null
+        viewModel.currentVideo.observe(viewLifecycleOwner) {
+            video = it
+        }
+        val youTubePlayerView : YouTubePlayerView = youtube_player_view
+        lifecycle.addObserver(youTubePlayerView)
+        youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                val videoId = video?.videoID?.replace(":-","")
+                Log.e("Video",videoId!!)
+                youTubePlayer.cueVideo(videoId, 0f)
+            }
+        })
     }
 
     companion object {

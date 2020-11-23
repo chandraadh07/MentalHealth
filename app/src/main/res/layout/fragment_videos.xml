@@ -9,7 +9,7 @@
 
     <TextView
         android:layout_marginTop="60dp"
-        android:id="@+id/txtVideoTitle"
+        android:id="@+id/textView2"
         android:layout_width="249dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -28,12 +28,10 @@
         android:outlineProvider="background">
 
         <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-            android:id="@+id/youtube_player_view_detail"
+            android:id="@+id/youtube_player_view"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            app:autoPlay="false"
-            app:showYouTubeButton="false"
-            app:videoId="lDosBozB9jw" />
+            app:autoPlay="false" />
     </FrameLayout>
 
     <TextView
@@ -65,5 +63,24 @@
             android:textColor="#4A4A4A"
             android:textSize="17dp" />
     </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/thumb"
+            android:layout_marginRight="4dp"/>
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:rotation="180"
+            android:layout_marginLeft="4dp"
+            android:src="@drawable/thumb"/>
+    </LinearLayout>
 
 </LinearLayout>
