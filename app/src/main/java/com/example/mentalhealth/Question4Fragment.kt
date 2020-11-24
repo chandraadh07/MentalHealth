@@ -20,7 +20,7 @@ class Question4Fragment : Fragment() {
         loadData()
 
         //check in data saved when next button clicked
-        btnNext_Question3.setOnClickListener{
+        next3.setOnClickListener{
             saveData()
             findNavController().navigate(R.id.action_global_buttonsFragment)
         }
@@ -32,11 +32,11 @@ class Question4Fragment : Fragment() {
 
         //making buttons show what they did before
         when (sharedPreferences?.getFloat("r3", 0.0F)){
-            1.0F -> rbStronglyDisagree3.isChecked = true
-            2.0F -> rbDisagree3.isChecked = true
-            3.0F -> rbNeutral3.isChecked = true
-            4.0F -> rbAgree3.isChecked = true
-            5.0F -> rbStronglyAgree3.isChecked = true
+            1.0F -> q_SD3.isChecked = true
+            2.0F -> q_D3.isChecked = true
+            3.0F -> q_N3.isChecked = true
+            4.0F -> q_A3.isChecked = true
+            5.0F -> q_SA3.isChecked = true
         }
     }
 
@@ -46,11 +46,11 @@ class Question4Fragment : Fragment() {
 
         var r3 = 0.0F
         when {
-            rbStronglyDisagree3.isChecked -> r3 = 1.0F
-            rbDisagree3.isChecked -> r3 = 2.0F
-            rbNeutral3.isChecked -> r3 = 3.0F
-            rbAgree3.isChecked -> r3 = 4.0F
-            rbStronglyAgree3.isChecked -> r3 = 5.0F
+            q_SD3.isChecked -> r3 = 1.0F
+            q_D3.isChecked -> r3 = 2.0F
+            q_N3.isChecked -> r3 = 3.0F
+            q_A3.isChecked -> r3 = 4.0F
+            q_SA3.isChecked -> r3 = 5.0F
         }
 
         val editor = sharedPreferences?.edit()

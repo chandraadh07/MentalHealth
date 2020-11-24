@@ -57,7 +57,7 @@ class VideosFragment : Fragment() {
         lifecycle.addObserver(youTubePlayerView)
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                val videoId = video?.videoID?.replace(":-","")
+                val videoId = video?.videoID?.replace(":","")
                 Log.e("Video",videoId!!)
                 youTubePlayer.cueVideo(videoId, 0f)
             }

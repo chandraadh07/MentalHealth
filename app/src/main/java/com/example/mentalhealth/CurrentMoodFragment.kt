@@ -32,47 +32,47 @@ class CurrentMoodFragment : Fragment() {
 
         btnExcited.setOnClickListener{
             mood = "excited"
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         }
 
         btnHappy.setOnClickListener{
             mood = "happy"
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         }
 
         btnCalm.setOnClickListener{
             mood = "calm"
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         }
 
         btnAngry.setOnClickListener{
             mood = "angry"
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         }
 
         btnSurprised.setOnClickListener{
             mood = "surprised"
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         }
 
         btnSad.setOnClickListener{
             mood = "sad"
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         }
 
         btnGrateful.setOnClickListener{
             mood = "grateful"
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         }
 
         btnConfused.setOnClickListener{
             mood = "confused"
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         }
 
         btnSleepy.setOnClickListener{
             mood = "sleepy"
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         }
 
         //check in data saved when next button clicked
@@ -99,7 +99,7 @@ class CurrentMoodFragment : Fragment() {
             "sleepy" -> mood = "sleepy"
         }
         if (mood != ""){
-            text_emotion.text = "I feel " + mood + " right now"
+            text_emotion.text = "You feel " + mood + " right now"
         } else {
             text_emotion.text = "Click an emoji which best represents your current mood."
         }

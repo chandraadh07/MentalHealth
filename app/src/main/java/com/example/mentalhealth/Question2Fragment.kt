@@ -28,12 +28,12 @@ class Question2Fragment : Fragment() {
         loadData()
 
         //check in data saved when next button clicked
-        btnNext_Question1.setOnClickListener{
+        next1.setOnClickListener{
             saveData()
             findNavController().navigate(R.id.action_question2Fragment_to_question3Fragment)
         }
 
-        button12.setOnClickListener {
+        exit1.setOnClickListener {
             findNavController().navigate(R.id.action_global_exitFragment)
         }
     }
@@ -41,14 +41,13 @@ class Question2Fragment : Fragment() {
     fun loadData(){
         // finding preferences
         val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
-
         //making buttons show what they did before
         when (sharedPreferences?.getFloat("r1", 0.0F)){
-            1.0F -> rbStronglyDisagree.isChecked = true
-            2.0F -> rbDisagree.isChecked = true
-            3.0F -> rbNeutral.isChecked = true
-            4.0F -> rbAgree.isChecked = true
-            5.0F -> rbStronglyAgree.isChecked = true
+            1.0F -> q_SD.isChecked = true
+            2.0F -> q_D.isChecked = true
+            3.0F -> q_N.isChecked = true
+            4.0F -> q_A.isChecked = true
+            5.0F -> q_SA.isChecked = true
         }
     }
 
@@ -58,11 +57,11 @@ class Question2Fragment : Fragment() {
 
         var r1 = 0.0F
         when {
-            rbStronglyDisagree.isChecked -> r1 = 1.0F
-            rbDisagree.isChecked -> r1 = 2.0F
-            rbNeutral.isChecked -> r1 = 3.0F
-            rbAgree.isChecked -> r1 = 4.0F
-            rbStronglyAgree.isChecked -> r1 = 5.0F
+            q_SD.isChecked -> r1 = 1.0F
+            q_D.isChecked -> r1 = 2.0F
+            q_N.isChecked -> r1 = 3.0F
+            q_A.isChecked -> r1 = 4.0F
+            q_SA.isChecked -> r1 = 5.0F
         }
 
         val editor = sharedPreferences?.edit()

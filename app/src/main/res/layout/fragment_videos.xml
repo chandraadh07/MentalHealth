@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
@@ -7,80 +8,88 @@
     android:layout_height="match_parent"
     tools:context="com.example.mentalhealth.VideosFragment">
 
-    <TextView
-        android:layout_marginTop="60dp"
-        android:id="@+id/textView2"
-        android:layout_width="249dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="Title of Video Here"
-        android:textAlignment="center"
-        android:textColor="#4A4A4A"
-        android:textSize="35dp" />
-
-    <FrameLayout
-        android:id="@+id/video_view_container"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
-        android:foreground="@drawable/bg_rounde"
-        android:outlineProvider="background">
-
-        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-            android:id="@+id/youtube_player_view"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            app:autoPlay="false" />
-    </FrameLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="#00FFFFFF"
-        android:fontFamily="sans-serif"
-        android:text="Why we chose this video"
-        android:textColor="#4A4A4A"
-        android:textSize="25dp" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:elevation="10dp"
-        app:cardBackgroundColor="#A2DDF8"
-        app:cardCornerRadius="35dp"
-        app:cardUseCompatPadding="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
+            android:layout_marginTop="60dp"
+            android:id="@+id/textView2"
+            android:layout_width="249dp"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:text="This video is meant to provide attachment"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Title of Video Here"
+            android:textAlignment="center"
             android:textColor="#4A4A4A"
-            android:textSize="17dp" />
-    </androidx.cardview.widget.CardView>
+            android:textSize="35dp" />
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/thumb"
-            android:layout_marginRight="4dp"/>
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:rotation="180"
-            android:layout_marginLeft="4dp"
-            android:src="@drawable/thumb"/>
+        <FrameLayout
+            android:id="@+id/video_view_container"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:foreground="@drawable/bg_rounde2"
+            android:outlineProvider="background">
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:autoPlay="false" />
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#00FFFFFF"
+            android:fontFamily="sans-serif"
+            android:text="Why we chose this video"
+            android:textColor="#4A4A4A"
+            android:textSize="25dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:elevation="10dp"
+            app:cardBackgroundColor="#A2DDF8"
+            app:cardCornerRadius="35dp"
+            app:cardUseCompatPadding="true">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="This video is meant to provide attachment"
+                android:textColor="#4A4A4A"
+                android:textSize="17dp" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:layout_width="100dp"
+                android:id="@+id/like_button"
+                android:layout_height="100dp"
+                android:background="@drawable/thumb"
+                android:layout_marginRight="4dp"/>
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/dislike_button"
+                android:background="@drawable/thumb"
+                android:rotation="180"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/thumb"/>
+        </LinearLayout>
     </LinearLayout>
-
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

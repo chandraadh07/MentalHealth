@@ -1,5 +1,6 @@
 package com.example.mentalhealth
 import android.provider.MediaStore
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -59,26 +60,32 @@ class AppViewModel: ViewModel() {
 
     // for finding recommended video ids
     fun filterVideos(byProv:Boolean=false,byHob:Boolean=false,byMood:Boolean=false,filter:String): List<String>? {
-        if (byProv){
-            return database.value?.youtubeDAO()?.filterByProvisions(filter)?.toList()
-        }
-        else if (byHob){
-            return database.value?.youtubeDAO()?.filterByHobby(filter)?.toList()
-        }
-        else{
-            return database.value?.youtubeDAO()?.filterByMood(filter)?.toList()
+        return if (byProv){
+            val provisions = filter.split(",")
+            Log.e("VIEW","BY THESE PROVS: $provisions")
+            val result =  database.value?.youtubeDAO()?.filterByProvisions("%${provisions[0]}%","%${provisions[1]}%")?.toList()
+            Log.e("VIEW","printing from viewModel:\n$result")
+            result
+        } else if (byHob){
+            val result = database.value?.youtubeDAO()?.filterByHobby("%$filter%")?.toList()
+            Log.e("VIEW","printing from viewModel:\n$result")
+            result
+        } else{
+            val result = database.value?.youtubeDAO()?.filterByMood("%$filter%")?.toList()
+            Log.e("VIEW","printing from viewModel:\n$result")
+            result
         }
     }
 
     // for translating list of video ids to array of videos
     // also stores each video as a recommended video
     fun idsToVideos(videoIds:List<String>):Array<Video>{
-        var result = emptyArray<Video>() as MutableList<Video>
+        val result = emptyList<Video>().toMutableList()
         videoIds.forEach{
             val video = database.value?.youtubeDAO()?.getVideoByID(it)
             markAsRecommended(video!!)
-            result.add(video!!)
+            result+=(video)
         }
-        return result as Array<Video>
+        return result.toTypedArray()
     }
 }

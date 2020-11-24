@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -27,14 +26,16 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val list = viewModel.database.value?.youtubeDAO()?.getAll()?.sliceArray(0..3)!!
-        list?.forEach {
-            Log.e(
-                "TAG",
-                it.videoID
-            )
-        }
-        recommendedData = list
+        recommendedData = getRecommendations()
+        Log.e("TAG",recommendedData.size.toString())
+//        val list = viewModel.database.value?.youtubeDAO()?.getAll()?.sliceArray(0..3)!!
+//        list?.forEach {
+//            Log.e(
+//                "TAG",
+//                it.videoID
+//            )
+//        }
+//        recommendedData = list
         // RECYCLER VIEW
         viewManager = LinearLayoutManager(activity)
         viewAdapter = RecRecyclerView(recommendedData, this) { videoItem: Video ->
@@ -58,7 +59,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
     fun getRecommendations(): Array<Video> {
         // Retrieves filters for each (answered) Check-In and returns an array of filtered recommendations
 
-        var provFilter: Array<String>
+        var provFilter: String
         var hobFilter: Array<String>
         var moodFilter: String
 
@@ -77,7 +78,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         provFilter = if (hasAnswered) {
             findProvisions(provisionResponses)
         } else {
-            emptyArray()
+            " "
         }
 
         // Has user answered Hobby check-in?
@@ -87,12 +88,12 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         moodFilter = ""
 
         // call findVideos with all filters
-        return findVideos(provFilter = provFilter, hobFilter = hobFilter, moodFilter = moodFilter)
+        return findVideos(provFilter = provFilter, hobFilter = arrayOf("home"), moodFilter ="happy")//hobFilter = hobFilter, moodFilter = moodFilter)
     }
 
 
     fun findVideos(
-        provFilter: Array<String>,
+        provFilter: String,
         hobFilter: Array<String>,
         moodFilter: String
     ): Array<Video> {
@@ -102,38 +103,44 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         var filteredByMood = emptyList<String>()
 
         if (provFilter.isNotEmpty()) {
+            Log.e("HOME","FILTER: $provFilter")
             filteredByProv =
-                viewModel.filterVideos(byProv = true, filter = provFilter.joinToString { " " })!!
+                viewModel.filterVideos(byProv = true, filter = provFilter)!!
         }
         if (hobFilter.isNotEmpty()) {
-            //filter SQL by hob`
+            //filter SQL by hob
             hobFilter.forEach {
+                Log.e("HOBBY","$it\n${viewModel.filterVideos(byHob = true, filter = it)!!}")
                 filteredByHobby =
-                    filteredByHobby + (viewModel.filterVideos(byProv = true, filter = it)!!)
+                    filteredByHobby + (viewModel.filterVideos(byHob = true, filter = it)!!)
             }
         }
         if (moodFilter.isNotEmpty()) {
             //filter SQL by mood
             filteredByMood = viewModel.filterVideos(byMood = true, filter = moodFilter)!!
         }
-
+        Log.e("HOME","ALL FILTER LIST RESULTS:\nProv:$filteredByProv\nHob:$filteredByHobby\nMood:$filteredByMood")
         var result = filteredByProv.intersect(filteredByHobby).intersect(filteredByMood).toList()
         if (result.size >= 20) {
+            Log.e("HOME","filter 1: $result")
             return viewModel.idsToVideos(result)
         }
         result = (filteredByProv.intersect(filteredByHobby)).toList()
         if (result.size >= 20) {
+            Log.e("HOME","filter 2: $result")
             return viewModel.idsToVideos(result)
         }
         result = (filteredByProv.union(filteredByHobby).union(filteredByMood)).toList()
         return if (result.size > 20) {
+            Log.e("HOME","filter 3: $result")
             viewModel.idsToVideos(result.slice(0..20).toList())
         } else {
+            Log.e("HOME","filter 4: $result")
             viewModel.idsToVideos(result)
         }
     }
 
-    fun findProvisions(userResults: List<Double>): Array<String> {
+    fun findProvisions(userResults: List<Double>): String {
         // Matches a provision(s) with the user based on their questionnaire results.
         // Uses xyz distance formula to calculate which provision(s) the user's emotion score
         // is closest to on a 3d plane of boredom, stress, and loneliness.
@@ -167,12 +174,12 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         }
 
         // Sort distances ascending
-        userDistances.toList()
-            .sortedBy { (key, value) -> value }
+        val map = userDistances.toList()
+            .sortedByDescending { (key, value) -> value }
             .toMap()
 
         // Get and return lowest two distances
-        return userDistances.keys.toList().slice(0..1) as Array<String>
+        return map.keys.toList().slice(0..1).toList().joinToString(",")
     }
 
 
