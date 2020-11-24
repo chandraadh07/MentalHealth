@@ -17,6 +17,14 @@ interface YoutubeDAO {
     @Query("UPDATE videoTable SET isWatched = 1 WHERE videoID =:id")
     fun watch(id: String)
 
+
+    @Query("UPDATE videoTable SET isLiked = 1, isDisliked = 0 WHERE videoID =:id")
+    fun like(id: String)
+
+    @Query("UPDATE videoTable SET isDisliked = 1, isLiked = 0 WHERE videoID =:id")
+    fun dislike(id: String)
+
+
     @Query("SELECT * FROM videoTable WHERE isRec = 1")
     fun getAllRec():Array<Video>
 

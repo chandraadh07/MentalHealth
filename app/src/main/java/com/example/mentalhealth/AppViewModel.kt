@@ -43,11 +43,6 @@ class AppViewModel: ViewModel() {
         database.value?.youtubeDAO()?.recommend(video.videoID)
     }
 
-    //making a video "recommended"
-    fun markAsWatched(video: Video){
-        database.value?.youtubeDAO()?.watch(video.videoID)
-    }
-
     //getting all recommended videos in the database
     fun getRecVids(){
         recList.value = database.value?.youtubeDAO()?.getAllRec()

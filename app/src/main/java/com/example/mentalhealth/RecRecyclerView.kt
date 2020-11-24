@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
@@ -35,6 +36,8 @@ class RecRecyclerView(
 
     class ViewHolder(val viewItem: View, youTubePlayerView: YouTubePlayerView) : RecyclerView.ViewHolder(
         viewItem
+
+
     ){
         val youTubePlayerView = youTubePlayerView
 
@@ -51,7 +54,9 @@ class RecRecyclerView(
             //viewItem.layoutParams.height = viewItem.layoutParams.height* 9 /16;
 //            viewItem.findViewById<YouTubePlayerView>(R.id.youtube_player_view_item).// = video.videoID
             viewItem.setOnClickListener{
+                Log.d("test", "before")
                 clickListener(video)
+                Log.d("test", "after")
             }
 
         }

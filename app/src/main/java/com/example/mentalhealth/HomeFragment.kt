@@ -50,8 +50,8 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
 
     // CODE FOR RECYCLER VIEW
 
-    fun videoItemClicked(videoItem: Video) {
-        viewModel.setCurrentVideo(videoItem)
+    fun videoItemClicked(video: Video) {
+        viewModel.setCurrentVideo(video)
         findNavController().navigate(R.id.action_homeFragment_to_videosFragment)
     }
 
@@ -59,9 +59,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
     fun getRecommendations(): Array<Video> {
         // Retrieves filters for each (answered) Check-In and returns an array of filtered recommendations
 
-        var provFilter: String
-        var hobFilter: Array<String>
-        var moodFilter: String
+        val provFilter: String
 
         // Has user answered Provision check-in?
         var hasAnswered = true
@@ -81,14 +79,15 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
             " "
         }
 
-        // Has user answered Hobby check-in?
-        hobFilter = emptyArray()
+        // get user hobbies
+        val hobbiesFilter = sharedPreferences.getString("hobbies", " ")!!.
+            split(" ").toTypedArray()
 
-        // Has user answered Mood check-in?
-        moodFilter = ""
+        // get user mood
+        val moodsFilter = sharedPreferences.getString("moods", " ")!!
 
         // call findVideos with all filters
-        return findVideos(provFilter = provFilter, hobFilter = arrayOf("home"), moodFilter ="happy")//hobFilter = hobFilter, moodFilter = moodFilter)
+        return findVideos(provFilter = provFilter, hobFilter = hobbiesFilter, moodFilter = moodsFilter)
     }
 
 

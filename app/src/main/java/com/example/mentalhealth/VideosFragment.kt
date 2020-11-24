@@ -1,11 +1,13 @@
 package com.example.mentalhealth
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.observe
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
@@ -13,29 +15,10 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import kotlinx.android.synthetic.main.fragment_videos.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [VideosFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class VideosFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     val viewModel: AppViewModel by activityViewModels()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +31,41 @@ class VideosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val id = viewModel.currentVideo.value?.videoID!!
+
+        // update title text
+        text_video.text = viewModel.currentVideo.value?.title
+
+        //say the video has been watched
+        viewModel.database.value?.youtubeDAO()?.watch(id)
+
+        // makes the video liked in the database
+        like_button.setOnClickListener {
+            viewModel.database.value?.youtubeDAO()?.like(id)
+            //Toast.makeText(activity, "you liked this video", Toast.LENGTH_SHORT).show()
+            val toast = Toast(context)
+            toast.duration = Toast.LENGTH_SHORT
+
+            val inflater = requireContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val view: View = inflater.inflate(R.layout.thumbs_up_toast, null)
+            toast.setView(view)
+            toast.show()
+        }
+
+        //makes the video disliked in the database
+        dislike_button.setOnClickListener {
+            viewModel.database.value?.youtubeDAO()?.dislike(id)
+//            Toast.makeText(activity, "you disliked this video", Toast.LENGTH_SHORT).show()
+            viewModel.database.value?.youtubeDAO()?.like(id)
+            //Toast.makeText(activity, "you liked this video", Toast.LENGTH_SHORT).show()
+            val toast = Toast(context)
+            toast.duration = Toast.LENGTH_SHORT
+
+            val inflater = requireContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val view: View = inflater.inflate(R.layout.thumbs_down_toast, null)
+            toast.setView(view)
+            toast.show()
+        }
 
         var video: Video? = null
         viewModel.currentVideo.observe(viewLifecycleOwner) {
@@ -57,30 +75,10 @@ class VideosFragment : Fragment() {
         lifecycle.addObserver(youTubePlayerView)
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                val videoId = video?.videoID?.replace(":","")
-                Log.e("Video",videoId!!)
+                val videoId = video?.videoID?.replace(":", "")
+                Log.e("Video", videoId!!)
                 youTubePlayer.cueVideo(videoId, 0f)
             }
         })
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment VideosFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            VideosFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }
