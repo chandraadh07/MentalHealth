@@ -1,5 +1,4 @@
 package com.example.mentalhealth
-import android.provider.MediaStore
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -54,20 +53,29 @@ class AppViewModel: ViewModel() {
     }
 
     // for finding recommended video ids
-    fun filterVideos(byProv:Boolean=false,byHob:Boolean=false,byMood:Boolean=false,filter:String): List<String>? {
+    fun filterVideos(
+        byProv:Boolean=false,
+        byHob:Boolean=false,
+        byMood:Boolean=false,
+        filter: List<String>
+    ): List<String>? {
         return if (byProv){
-            val provisions = filter.split(",")
-            Log.e("VIEW","BY THESE PROVS: $provisions")
-            val result =  database.value?.youtubeDAO()?.filterByProvisions("%${provisions[0]}%","%${provisions[1]}%","%${provisions[2]}%")?.toList()
-            Log.e("VIEW","prov results:\n$result")
+            val result =  database.value?.youtubeDAO()?.filterByProvisions(filter[0], filter[1])?.toList()!!
+            Log.e("VIEW","$filter results:\n${result.size}")
             result
-        } else if (byHob){
-            val result = database.value?.youtubeDAO()?.filterByHobby("%$filter%")?.toList()
-            Log.e("VIEW","hob results:\n$result")
-            result
-        } else{
-            val result = database.value?.youtubeDAO()?.filterByMood("%$filter%")?.toList()
-            Log.e("VIEW","mood results:\n$result")
+        } else {
+            val result = mutableListOf<String>()
+            val videos = database.value?.youtubeDAO()?.filter()!!
+                videos.forEach{tuple->
+                    val keywords = tuple.keywords.toString().split(" ")
+                    filter.forEach {
+                        val item = it
+                        if (item in keywords){
+                            result.add(tuple.videoID!!)
+                    }
+                }
+            }
+            Log.e("VIEW",result.size.toString())
             result
         }
     }

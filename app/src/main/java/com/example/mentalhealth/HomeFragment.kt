@@ -61,7 +61,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         Log.d("tests", "getting recommendations")
         // Retrieves filters for each (answered) Check-In and returns an array of filtered recommendations
 
-        val provFilter: String
+        val provFilter: List<String>
 
         // Has user answered Provision check-in?
         var hasAnswered = true
@@ -78,7 +78,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         provFilter = if (hasAnswered) {
             findProvisions(provisionResponses)
         } else {
-            ""
+            emptyList()
         }
 
         // get user hobbies
@@ -96,48 +96,45 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
 
 
     fun findVideos(
-        provFilter: String,hobFilter: List<String>, moodFilter: String): Array<Video> {
+        provFilter: List<String>, hobFilter: List<String>, moodFilter: String): Array<Video> {
         // Takes in check-in filters, retrieves filtered videos from database, and returns 20 (or less) videos
         var filteredByProv = emptyList<String>()
         var filteredByHobby = emptyList<String>()
         var filteredByMood = emptyList<String>()
 
-        if (provFilter != "") {
+        if (provFilter.isNotEmpty()) {
             filteredByProv =
                 viewModel.filterVideos(byProv = true, filter = provFilter)!!
         }
         if (hobFilter.isNotEmpty()) {
             //filter SQL by hob
-            hobFilter.forEach {
-                filteredByHobby =
-                    filteredByHobby + (viewModel.filterVideos(byHob = true, filter = it)!!)
-            }
+            filteredByHobby =
+                filteredByHobby + (viewModel.filterVideos(byHob = true, filter = hobFilter)!!)
         }
         if (moodFilter != "") {
             //filter SQL by mood
-            filteredByMood = viewModel.filterVideos(byMood = true, filter = moodFilter)!!
+            filteredByMood = viewModel.filterVideos(byMood = true, filter = listOf(moodFilter))!!
         }
-        var result = filteredByProv.intersect(filteredByHobby).intersect(filteredByMood).toList()
-        if (result.size >= 10) {
-            Log.e("HOME","filter 1")
-            return viewModel.idsToVideos(result.slice(0..9).toList())
+
+        val allIntersection =  filteredByProv.intersect(filteredByHobby).intersect(filteredByMood).toList()
+        val provAndHobIntersection = filteredByProv.intersect(filteredByHobby).toList()
+        val allUnion = (filteredByProv.union(filteredByHobby).union(filteredByMood)).toList().shuffled()
+
+        if (allIntersection.size>=10)
+            return viewModel.idsToVideos(allIntersection.slice(0..9))
+        else if (provAndHobIntersection.size >= 10) {
+                return viewModel.idsToVideos(provAndHobIntersection.slice(0..9))
         }
-        result = (filteredByProv.intersect(filteredByHobby)).toList()
-        if (result.size >= 10) {
-            Log.e("HOME","filter 2")
-            return viewModel.idsToVideos(result.slice(0..9).toList())
-        }
-        result = (filteredByProv.union(filteredByHobby).union(filteredByMood)).toList()
-        return if (result.size >= 10) {
-            Log.e("HOME","filter 3")
-            viewModel.idsToVideos(result.slice(0..9).toList())
-        } else {
-            Log.e("HOME","filter 4, size ${result.size}")
-            viewModel.idsToVideos(result)
+        else {
+            var result = filteredByProv.intersect(filteredByHobby).intersect(filteredByMood).toMutableList()
+            val left = allUnion.subtract(result)
+            var toAdd = 10-result.size
+            result.addAll(left.toList().slice(0..toAdd))
+            return viewModel.idsToVideos(result.toList())
         }
     }
 
-    fun findProvisions(userResults: List<Double>): String {
+    fun findProvisions(userResults: List<Double>): List<String> {
         Log.d("tests", "entered findProvisions")
         // Matches a provision(s) with the user based on their questionnaire results.
         // Uses xyz distance formula to calculate which provision(s) the user's emotion score
@@ -177,8 +174,8 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
             .toMap()
 
         // Get and return lowest two distances
-        Log.e("tests", "it has mapped")
-        return map.keys.toList().slice(0..2).toList().joinToString(",")
+        Log.e("tests", "${map.keys.toList().slice(0..2).toList().joinToString(",")}")
+        return map.keys.toList().slice(0..2).toList()
     }
 
 

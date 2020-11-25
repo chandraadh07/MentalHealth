@@ -12,6 +12,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
+import androidx.core.content.edit
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_hobbies.*
 
@@ -23,7 +24,6 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadData()
-        Log.e("TAG", hobbyStringArray.slice(0..5).toString())
 
         val adapter =
             activity?.let { ArrayAdapter(it, android.R.layout.select_dialog_item, hobbyStringArray) }
@@ -82,6 +82,8 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
         // finding preferences
         val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
         hobby_text.text = sharedPreferences?.getString("hobbies", "no hobbies added")?.replace(","," ")
+        Log.e("TAG", hobby_text.text.toString())
+
 
         val dataString =
             resources.openRawResource(R.raw.keywords).bufferedReader()
@@ -105,6 +107,7 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
         editor?.apply{
             putString("hobbies", "")
         }?.apply()
+
 
         Toast.makeText(activity, "hobbies deleted", Toast.LENGTH_SHORT).show()
     }

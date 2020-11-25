@@ -33,9 +33,23 @@ class VideosFragment : Fragment() {
 
         val id = viewModel.currentVideo.value?.videoID!!
 
+        val provWhys = mapOf<String,String>("attachment" to "make you feel at home","integration" to "add some fun to your day",
+                            "alliance" to "help you de-stress", "guidance" to "teach you something new",
+                            "nurturance" to "remind you that you're not alone", "reassurance" to "help you feel at ease")
+
+        val provisions = viewModel.currentVideo.value?.provisions?.split(" ")!!
+        var whyText = "This video is meant to "
+        provisions.forEachIndexed { index, s ->
+            if (index == provisions.size - 1) {
+                whyText += "and " + provWhys.getValue(s) + "."
+            } else {
+                whyText += provWhys.getValue(s) + ", "
+            }
+        }
+
+        textView3.text = whyText
         // update title text
         text_video.text = viewModel.currentVideo.value?.title
-
         //say the video has been watched
         viewModel.database.value?.youtubeDAO()?.watch(id)
 

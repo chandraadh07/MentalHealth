@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         //passing restaurant values from data csv file
         vid.videoID = cells[0]
         vid.title = cells[1]
-        vid.tags = cells[3]
+        vid.keywords = cells[3]
         vid.style = cells[4]
         vid.provisions = cells[5]
         vid.duration = cells[6].toInt()

@@ -7,7 +7,6 @@ class Video {
     var videoID = ""
     var title = ""
     //    var tags = emptyArray<String>()
-    var tags = ""
     //    var keywords = emptyArray<String>()
     var keywords = ""
     var style = ""

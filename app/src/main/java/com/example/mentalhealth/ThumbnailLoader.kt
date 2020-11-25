@@ -82,31 +82,36 @@ class ThumbnailLoader {
 
     fun decodeJson(json: String, imageView: ImageView) {
         Log.e("JSON",json)
-        val thumbnails:JSONObject = JSONObject(json).getJSONArray("items").getJSONObject(0).getJSONObject("snippet")
-            .getJSONObject("thumbnails")
-        val thumb =
-            try {
-                thumbnails.getJSONObject("maxres").getString("url")
-            }
-            catch (e:org.json.JSONException) {
+        try {
+            val thumbnails: JSONObject =
+                JSONObject(json).getJSONArray("items").getJSONObject(0).getJSONObject("snippet")
+                    .getJSONObject("thumbnails")
+            val thumb =
                 try {
-                    thumbnails.getJSONObject("standard").getString("url")
+                    thumbnails.getJSONObject("maxres").getString("url")
                 }
                 catch (e:org.json.JSONException) {
                     try {
-                        thumbnails.getJSONObject("high").getString("url")
+                        thumbnails.getJSONObject("standard").getString("url")
                     }
                     catch (e:org.json.JSONException) {
                         try {
-                            thumbnails.getJSONObject("medium").getString("url")
+                            thumbnails.getJSONObject("high").getString("url")
                         }
                         catch (e:org.json.JSONException) {
-                            thumbnails.getJSONObject("default").getString("url")
+                            try {
+                                thumbnails.getJSONObject("medium").getString("url")
+                            }
+                            catch (e:org.json.JSONException) {
+                                thumbnails.getJSONObject("default").getString("url")
+                            }
                         }
                     }
                 }
-            }
-        getInstance().loadURL(thumb, imageView)
+            getInstance().loadURL(thumb, imageView)
+        }catch(e:Exception){
+            true
+        }
     }
 
     companion object {
