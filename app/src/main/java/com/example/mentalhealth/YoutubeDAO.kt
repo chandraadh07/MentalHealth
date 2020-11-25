@@ -42,8 +42,8 @@ interface YoutubeDAO {
 //    2. find videos with similar 5 hobbies (individually)
 //    3. find videos with similar 1 mood
 
-    @Query("SELECT videoId FROM videoTable WHERE provisions LIKE :prov1 AND provisions LIKE :prov2")
-    fun filterByProvisions(prov1: String,prov2: String) :Array<String>
+    @Query("SELECT videoId FROM videoTable WHERE provisions LIKE :prov1 AND provisions LIKE :prov2 AND provisions LIKE :prov3")
+    fun filterByProvisions(prov1: String,prov2: String, prov3:String) :Array<String>
 
     @Query("SELECT videoId FROM videoTable WHERE keywords LIKE :hobby")
     fun filterByHobby(hobby: String) :Array<String>

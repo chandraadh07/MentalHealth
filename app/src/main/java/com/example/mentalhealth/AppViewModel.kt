@@ -58,16 +58,16 @@ class AppViewModel: ViewModel() {
         return if (byProv){
             val provisions = filter.split(",")
             Log.e("VIEW","BY THESE PROVS: $provisions")
-            val result =  database.value?.youtubeDAO()?.filterByProvisions("%${provisions[0]}%","%${provisions[1]}%")?.toList()
-            Log.e("VIEW","printing from viewModel:\n$result")
+            val result =  database.value?.youtubeDAO()?.filterByProvisions("%${provisions[0]}%","%${provisions[1]}%","%${provisions[2]}%")?.toList()
+            Log.e("VIEW","prov results:\n$result")
             result
         } else if (byHob){
             val result = database.value?.youtubeDAO()?.filterByHobby("%$filter%")?.toList()
-            Log.e("VIEW","printing from viewModel:\n$result")
+            Log.e("VIEW","hob results:\n$result")
             result
         } else{
             val result = database.value?.youtubeDAO()?.filterByMood("%$filter%")?.toList()
-            Log.e("VIEW","printing from viewModel:\n$result")
+            Log.e("VIEW","mood results:\n$result")
             result
         }
     }

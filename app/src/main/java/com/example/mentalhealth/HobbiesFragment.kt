@@ -47,30 +47,41 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
 
         val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
 
-        val hobby = adapter?.getItemAtPosition(position) // The item that was clicked
+        val hobby:String = adapter?.getItemAtPosition(position).toString() // The item that was clicked
 
         autoTextView.setText("")
 
+        val hobFromPref = sharedPreferences?.getString("hobbies", "")!!
+
         //adding to the preference string
-        val hobbyString = sharedPreferences?.getString("hobbies", "") + " " +
-                hobby.toString()
+        var hobbyString = ""
+        var hobbyPreferences = ""
+        if (hobFromPref == "") {
+            hobbyString = hobby
+            hobbyPreferences = hobby
+        }
+        else{
+            hobbyString = hobFromPref.replace(","," ") + " "+ hobby
+            hobbyPreferences = hobFromPref + "," + hobby
+        }
+
+        Log.d("PREFS","string hobbies: " + hobbyString)
+        Log.d("PREFS", "preferences: " + hobbyPreferences)
 
         // assigns the current mood to the mood preference
-        val editor = sharedPreferences?.edit()
+        val editor = sharedPreferences.edit()
         editor?.apply{
-            putString("hobbies", hobbyString)
+            putString("hobbies", hobbyPreferences)
         }?.apply()
 
         // updating text
         hobby_text.text = hobbyString
-
-        //Toast.makeText(activity, "hobbies saved", Toast.LENGTH_SHORT).show()
     }
 
     fun loadData() {
         // finding preferences
         val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
-        hobby_text.text = sharedPreferences?.getString("hobbies", "no hobbies added")
+        hobby_text.text = sharedPreferences?.getString("hobbies", "no hobbies added")?.replace(","," ")
 
         val dataString =
             resources.openRawResource(R.raw.keywords).bufferedReader()

@@ -57,6 +57,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
 
 
     fun getRecommendations(): Array<Video> {
+        Log.d("tests", "getting recommendations")
         // Retrieves filters for each (answered) Check-In and returns an array of filtered recommendations
 
         val provFilter: String
@@ -81,10 +82,12 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
 
         // get user hobbies
         val hobbiesFilter = sharedPreferences.getString("hobbies", "")!!.
-            split(" ").toTypedArray()
+            split(",")
 
         // get user mood
         val moodsFilter = sharedPreferences.getString("moods", "")!!
+
+        Log.e("pref","prov$provFilter\nhob$hobbiesFilter\nmood$moodsFilter")
 
         // call findVideos with all filters
         return findVideos(provFilter = provFilter, hobFilter = hobbiesFilter, moodFilter = moodsFilter)
@@ -92,16 +95,13 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
 
 
     fun findVideos(
-        provFilter: String,
-        hobFilter: Array<String>,
-        moodFilter: String
-    ): Array<Video> {
+        provFilter: String,hobFilter: List<String>, moodFilter: String): Array<Video> {
         // Takes in check-in filters, retrieves filtered videos from database, and returns 20 (or less) videos
         var filteredByProv = emptyList<String>()
         var filteredByHobby = emptyList<String>()
         var filteredByMood = emptyList<String>()
 
-        if (provFilter.isNotEmpty()) {
+        if (provFilter != "") {
             filteredByProv =
                 viewModel.filterVideos(byProv = true, filter = provFilter)!!
         }
@@ -112,7 +112,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
                     filteredByHobby + (viewModel.filterVideos(byHob = true, filter = it)!!)
             }
         }
-        if (moodFilter.isNotEmpty()) {
+        if (moodFilter != "") {
             //filter SQL by mood
             filteredByMood = viewModel.filterVideos(byMood = true, filter = moodFilter)!!
         }
@@ -137,13 +137,17 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
     }
 
     fun findProvisions(userResults: List<Double>): String {
+        Log.d("tests", "entered findProvisions")
         // Matches a provision(s) with the user based on their questionnaire results.
         // Uses xyz distance formula to calculate which provision(s) the user's emotion score
         // is closest to on a 3d plane of boredom, stress, and loneliness.
         var provisionCoords = mapOf<String, List<Double>>(
-            "attachment" to listOf(15.0, 70.0, 15.0), "integration" to listOf(20.0, 40.0, 40.0),
-            "alliance" to listOf(35.0, 35.0, 30.0), "reassurance" to listOf(35.0, 45.0, 30.0),
-            "nurturance" to listOf(45.0, 40.0, 15.0), "guidance" to listOf(35.0, 20.0, 45.0)
+//            "attachment" to listOf(15.0, 70.0, 15.0), "integration" to listOf(20.0, 40.0, 40.0),
+//            "alliance" to listOf(35.0, 35.0, 30.0), "reassurance" to listOf(35.0, 45.0, 30.0),
+//            "nurturance" to listOf(45.0, 40.0, 15.0), "guidance" to listOf(35.0, 20.0, 45.0)
+            "attachment" to listOf(15.0, 0.0, 85.0), "integration" to listOf(20.0, 40.0, 40.0),
+            "alliance" to listOf(0.0, 30.0, 70.0), "reassurance" to listOf(35.0, 45.0, 30.0),
+            "nurturance" to listOf(50.0, 50.0, 0.0), "guidance" to listOf(0.0, 0.0, 100.0)
         )
 
         // Create x,y,z coordinate for user's emotion scores
@@ -175,7 +179,8 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
             .toMap()
 
         // Get and return lowest two distances
-        return map.keys.toList().slice(0..1).toList().joinToString(",")
+        Log.e("tests", "it has mapped")
+        return map.keys.toList().slice(0..2).toList().joinToString(",")
     }
 
 
