@@ -76,15 +76,15 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         provFilter = if (hasAnswered) {
             findProvisions(provisionResponses)
         } else {
-            " "
+            ""
         }
 
         // get user hobbies
-        val hobbiesFilter = sharedPreferences.getString("hobbies", " ")!!.
+        val hobbiesFilter = sharedPreferences.getString("hobbies", "")!!.
             split(" ").toTypedArray()
 
         // get user mood
-        val moodsFilter = sharedPreferences.getString("moods", " ")!!
+        val moodsFilter = sharedPreferences.getString("moods", "")!!
 
         // call findVideos with all filters
         return findVideos(provFilter = provFilter, hobFilter = hobbiesFilter, moodFilter = moodsFilter)
@@ -102,14 +102,12 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         var filteredByMood = emptyList<String>()
 
         if (provFilter.isNotEmpty()) {
-            Log.e("HOME","FILTER: $provFilter")
             filteredByProv =
                 viewModel.filterVideos(byProv = true, filter = provFilter)!!
         }
         if (hobFilter.isNotEmpty()) {
             //filter SQL by hob
             hobFilter.forEach {
-                Log.e("HOBBY","$it\n${viewModel.filterVideos(byHob = true, filter = it)!!}")
                 filteredByHobby =
                     filteredByHobby + (viewModel.filterVideos(byHob = true, filter = it)!!)
             }
@@ -118,23 +116,22 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
             //filter SQL by mood
             filteredByMood = viewModel.filterVideos(byMood = true, filter = moodFilter)!!
         }
-        Log.e("HOME","ALL FILTER LIST RESULTS:\nProv:$filteredByProv\nHob:$filteredByHobby\nMood:$filteredByMood")
         var result = filteredByProv.intersect(filteredByHobby).intersect(filteredByMood).toList()
-        if (result.size >= 20) {
-            Log.e("HOME","filter 1: $result")
-            return viewModel.idsToVideos(result)
+        if (result.size >= 10) {
+            Log.e("HOME","filter 1")
+            return viewModel.idsToVideos(result.slice(0..9).toList())
         }
         result = (filteredByProv.intersect(filteredByHobby)).toList()
-        if (result.size >= 20) {
-            Log.e("HOME","filter 2: $result")
-            return viewModel.idsToVideos(result)
+        if (result.size >= 10) {
+            Log.e("HOME","filter 2")
+            return viewModel.idsToVideos(result.slice(0..9).toList())
         }
         result = (filteredByProv.union(filteredByHobby).union(filteredByMood)).toList()
-        return if (result.size > 20) {
-            Log.e("HOME","filter 3: $result")
-            viewModel.idsToVideos(result.slice(0..20).toList())
+        return if (result.size >= 10) {
+            Log.e("HOME","filter 3")
+            viewModel.idsToVideos(result.slice(0..9).toList())
         } else {
-            Log.e("HOME","filter 4: $result")
+            Log.e("HOME","filter 4, size ${result.size}")
             viewModel.idsToVideos(result)
         }
     }
