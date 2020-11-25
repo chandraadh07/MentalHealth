@@ -27,6 +27,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         super.onViewCreated(view, savedInstanceState)
 
         recommendedData = getRecommendations()
+
         Log.e("TAG",recommendedData.size.toString())
 //        val list = viewModel.database.value?.youtubeDAO()?.getAll()?.sliceArray(0..3)!!
 //        list?.forEach {

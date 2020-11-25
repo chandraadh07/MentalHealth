@@ -143,4 +143,7 @@
     <action
         android:id="@+id/action_global_question3Fragment"
         app:destination="@id/question3Fragment" />
+    <action
+        android:id="@+id/action_global_videosFragment"
+        app:destination="@id/videosFragment" />
 </navigation>
