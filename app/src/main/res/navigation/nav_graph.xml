@@ -27,7 +27,11 @@
         tools:layout="@layout/fragment_question2" >
         <action
             android:id="@+id/action_question2Fragment_to_question3Fragment"
-            app:destination="@id/question3Fragment" />
+            app:destination="@id/question3Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/question3Fragment"
@@ -36,7 +40,11 @@
         tools:layout="@layout/fragment_question3" >
         <action
             android:id="@+id/action_question3Fragment_to_question4Fragment"
-            app:destination="@id/question4Fragment" />
+            app:destination="@id/question4Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
@@ -68,7 +76,11 @@
         tools:layout="@layout/fragment_exit" >
         <action
             android:id="@+id/action_exitFragment_to_hobbiesFragment"
-            app:destination="@id/hobbiesFragment" />
+            app:destination="@id/hobbiesFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/buttonsFragment"
@@ -77,13 +89,25 @@
         tools:layout="@layout/fragment_buttons" >
         <action
             android:id="@+id/action_buttonsFragment_to_question2Fragment"
-            app:destination="@id/question2Fragment" />
+            app:destination="@id/question2Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_buttonsFragment_to_hobbiesFragment"
-            app:destination="@id/hobbiesFragment" />
+            app:destination="@id/hobbiesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_buttonsFragment_to_currentMoodFragment"
-            app:destination="@id/currentMoodFragment" />
+            app:destination="@id/currentMoodFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
     <fragment
         android:id="@+id/question4Fragment"
@@ -95,7 +119,11 @@
         app:destination="@id/historyFragment" />
     <action
         android:id="@+id/action_global_buttonsFragment"
-        app:destination="@id/buttonsFragment" />
+        app:destination="@id/buttonsFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
     <action
         android:id="@+id/action_global_homeFragment"
         app:destination="@id/homeFragment" />

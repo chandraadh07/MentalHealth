@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/round_corners"
     tools:context=".Question2Fragment">
 
     <Button
         android:id="@+id/exit2"
+        android:elevation="5dp"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity="left"
         android:layout_margin="20dp"
         android:background="@drawable/roundbutons"
         android:text="X"
-        android:textSize="30sp"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Question 2/3"
-        android:textColor="#000000"
-        android:textSize="20sp"
+        android:textColor="@color/colorText"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +41,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
         android:layout_marginRight="30dp"
+        android:elevation="10dp"
         android:background="@drawable/forquestions"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/next2"
@@ -55,8 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="You feel bored lately."
-            android:textColor="#3b546f"
-            android:textSize="30sp" />
+            android:textSize="30dp"
+            android:textColor="@color/colorText"/>
 
         <RadioGroup
             android:id="@+id/rganswer2"
@@ -73,7 +74,8 @@
                 android:buttonTint="#FFFFFF"
                 android:checked="false"
                 android:text="Strongly Disagree"
-                android:textSize="30sp" />
+                android:textSize="30dp"
+                android:textColor="@color/colorText"/>
 
             <RadioButton
                 android:id="@+id/q_D2"
@@ -81,7 +83,8 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:text="Disagree"
-                android:textSize="30sp" />
+                android:textSize="30dp"
+                android:textColor="@color/colorText"/>
 
             <RadioButton
                 android:id="@+id/q_N2"
@@ -89,7 +92,8 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:text="Neutral"
-                android:textSize="30sp" />
+                android:textSize="30dp"
+                android:textColor="@color/colorText"/>
 
             <RadioButton
                 android:id="@+id/q_A2"
@@ -97,7 +101,8 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:text="Agree"
-                android:textSize="30sp" />
+                android:textSize="30dp"
+                android:textColor="@color/colorText"/>
 
             <RadioButton
                 android:id="@+id/q_SA2"
@@ -105,7 +110,8 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:text="Strongly Agree"
-                android:textSize="30sp" />
+                android:textSize="30dp"
+                android:textColor="@color/colorText"/>
 
         </RadioGroup>
 
@@ -121,6 +127,7 @@
         android:background="@drawable/roundbutons"
         android:text="Next"
         android:textSize="20dp"
+        android:elevation="5dp"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

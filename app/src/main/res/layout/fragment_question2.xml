@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/round_corners"
     tools:context=".Question2Fragment">
 
     <Button
         android:id="@+id/exit1"
+        android:elevation="5dp"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity="left"
+        android:textColor="@color/colorText"
         android:layout_margin="20dp"
         android:background="@drawable/roundbutons"
         android:text="X"
-        android:textSize="30sp"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Question 1/3"
-        android:textColor="#000000"
-        android:textSize="20sp"
+        android:textColor="@color/colorText"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +38,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
+        android:elevation="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -52,11 +54,11 @@
         <TextView
             android:id="@+id/txtQuestion1"
             android:layout_width="wrap_content"
+            android:textColor="@color/colorText"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:text="You often feel stressed about school/work/friends."
-            android:textColor="#3b546f"
-            android:textSize="30sp" />
+            android:textSize="30dp" />
 
         <RadioGroup
             android:id="@+id/rganswer"
@@ -72,24 +74,27 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:checked="false"
+                android:textColor="@color/colorText"
                 android:text="Strongly Disagree"
-                android:textSize="30sp" />
+                android:textSize="30dp" />
 
             <RadioButton
                 android:id="@+id/q_D"
                 android:layout_width="wrap_content"
+                android:textColor="@color/colorText"
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:text="Disagree"
-                android:textSize="30sp" />
+                android:textSize="30dp" />
 
             <RadioButton
                 android:id="@+id/q_N"
+                android:textColor="@color/colorText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:text="Neutral"
-                android:textSize="30sp" />
+                android:textSize="30dp" />
 
             <RadioButton
                 android:id="@+id/q_A"
@@ -97,15 +102,17 @@
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:text="Agree"
-                android:textSize="30sp" />
+                android:textColor="@color/colorText"
+                android:textSize="30dp" />
 
             <RadioButton
                 android:id="@+id/q_SA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/colorText"
                 android:buttonTint="#FFFFFF"
                 android:text="Strongly Agree"
-                android:textSize="30sp" />
+                android:textSize="30dp" />
 
         </RadioGroup>
 
@@ -122,6 +129,8 @@
         android:text="Next"
         android:textAllCaps="false"
         android:textSize="20dp"
+        android:textColor="@color/colorText"
+        android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
