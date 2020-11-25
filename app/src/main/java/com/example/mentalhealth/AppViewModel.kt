@@ -52,24 +52,43 @@ class AppViewModel: ViewModel() {
         watchedList.value = database.value?.youtubeDAO()?.getAllWatched()
     }
 
-    // for finding recommended video ids
+
+    // FUNCTION WHICH CURRENTLY HAS A BUG!?
+
+    // takes in a filter (either by provision, hobby or mood) and returns a list of videos
+    // filtered by that condition
     fun filterVideos(
         byProv:Boolean=false,
         byHob:Boolean=false,
         byMood:Boolean=false,
         filter: List<String>
     ): List<String>? {
+        // if we're filtering by provision...
         return if (byProv){
+            // call the filter by provision query in DAO
             val result =  database.value?.youtubeDAO()?.filterByProvisions(filter[0], filter[1])?.toList()!!
             Log.e("VIEW","$filter results:\n${result.size}")
+            // return resulted list of video IDS
             result
+
+        // otherwise (mood or hobbies)
         } else {
             val result = mutableListOf<String>()
+            // get a list of (videoID, keywords) tuples for all videos in DB
             val videos = database.value?.youtubeDAO()?.filter()!!
+                // for each video, check if one of our hobbies/mood exists in the keywords
+                // if one does, add that video to our list
                 videos.forEach{tuple->
+                    // split keyword string into list of strings
                     val keywords = tuple.keywords.toString().split(" ")
                     filter.forEach {
                         val item = it
+
+                        // HERE IS THE ISSUE :^(
+                        // this checks if item (a hobby or mood) exists in the list of keywords
+                        // HOWEVER, no matter how I frame this (whether I see if item exists in the
+                        // list of keywords, or the item exists in a string of all keywords, or
+                        // the item.equals(some keyword in the list), it doesn't work how it should
                         if (item in keywords){
                             result.add(tuple.videoID!!)
                     }

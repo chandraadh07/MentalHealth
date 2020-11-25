@@ -106,6 +106,8 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
             filteredByProv =
                 viewModel.filterVideos(byProv = true, filter = provFilter)!!
         }
+
+        // THIS IS THE CALL THAT LEADS TO A BUG... GO TO THE VIEWMODEL METHOD "FILTER VIDEOS"
         if (hobFilter.isNotEmpty()) {
             //filter SQL by hob
             filteredByHobby =
@@ -115,6 +117,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
             //filter SQL by mood
             filteredByMood = viewModel.filterVideos(byMood = true, filter = listOf(moodFilter))!!
         }
+
 
         val allIntersection =  filteredByProv.intersect(filteredByHobby).intersect(filteredByMood).toList()
         val provAndHobIntersection = filteredByProv.intersect(filteredByHobby).toList()
