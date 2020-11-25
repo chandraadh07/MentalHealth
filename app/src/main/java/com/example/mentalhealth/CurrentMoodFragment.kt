@@ -71,7 +71,7 @@ class CurrentMoodFragment : Fragment() {
         }
 
         btnSleepy.setOnClickListener{
-            mood = "sleepy"
+            mood = "tired"
             text_emotion.text = "You feel " + mood + " right now"
         }
 
@@ -96,7 +96,7 @@ class CurrentMoodFragment : Fragment() {
             "sad" -> mood = "sad"
             "grateful" -> mood = "grateful"
             "confused" -> mood = "confused"
-            "sleepy" -> mood = "sleepy"
+            "tired" -> mood = "tired"
         }
         if (mood != ""){
             text_emotion.text = "You feel " + mood + " right now"
