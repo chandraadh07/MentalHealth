@@ -9,206 +9,204 @@
 
     <Button
         android:id="@+id/btngoBack"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity="left"
-        android:layout_margin="10dp"
-        android:layout_marginTop="28dp"
+        android:layout_margin="20dp"
         android:background="@drawable/roundbutonsforemotionsbutons"
         android:elevation="15dp"
         android:text="X"
         android:textColor="@color/colorText"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="340dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_margin="25dp"
         android:background="@drawable/roundbutonsforemotionsfragment"
         android:elevation="10dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/text_emotion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btngoBack">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="20dp"
             android:layout_weight=".5"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="4dp"
             android:text="How are you feeling today?"
             android:textAlignment="center"
             android:textColor="@color/colorText"
             android:textSize="30sp" />
 
-
         <LinearLayout
-            android:id="@+id/firstrow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnExcited"
-                android:layout_width="25dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/excited"
+            <LinearLayout
+                android:id="@+id/firstrow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:orientation="horizontal">
 
-                />
+                <Button
+                    android:id="@+id/btnExcited"
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/excited"
 
-            <Button
-                android:id="@+id/btnHappy"
-                android:layout_width="25dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/happy"
+                    />
 
-                />
+                <Button
+                    android:id="@+id/btnHappy"
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/happy"
 
-            <Button
-                android:id="@+id/btnCalm"
-                android:layout_width="25dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/calm"
+                    />
 
-                />
+                <Button
+                    android:id="@+id/btnCalm"
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/calm"
+
+                    />
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/secondrow"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_weight=".5"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnAngry"
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/angry"
+
+                    />
+
+                <Button
+                    android:id="@+id/btnSurprised"
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/surprised"
+
+                    />
+
+                <Button
+                    android:id="@+id/btnSad"
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/sad"
+
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/thirdRow"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight=".5"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnGrateful"
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/grateful"
+
+                    />
+
+                <Button
+                    android:id="@+id/btnConfused"
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/confused"
+
+                    />
+
+                <Button
+                    android:id="@+id/btnSleepy"
+                    android:layout_width="20dp"
+                    android:layout_height="70dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/sleepy"
+
+                    />
+
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/secondrow"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_weight=".5"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnAngry"
-                android:layout_width="25dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/angry"
-
-                />
-
-            <Button
-                android:id="@+id/btnSurprised"
-                android:layout_width="25dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/surprised"
-
-                />
-
-            <Button
-                android:id="@+id/btnSad"
-                android:layout_width="25dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/sad"
-
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/thirdRow"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="20dp"
-            android:layout_weight=".5"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnGrateful"
-                android:layout_width="25dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/grateful"
-
-                />
-
-            <Button
-                android:id="@+id/btnConfused"
-                android:layout_width="25dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/confused"
-
-                />
-
-            <Button
-                android:id="@+id/btnSleepy"
-                android:layout_width="25dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/sleepy"
-
-                />
-
-        </LinearLayout>
-
     </LinearLayout>
 
     <TextView
         android:id="@+id/text_emotion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="28dp"
+        android:layout_margin="20dp"
         android:text="select a mood"
-        android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnMoodCheckIns"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnMoodCheckIns"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_margin="30dp"
         android:background="@drawable/roundbutonsforemotionsbutons"
         android:elevation="15dp"
         android:text=" Return to Check-Ins "
         android:textAllCaps="false"
         android:textColor="@color/colorText"
         android:textSize="25sp"
-        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_emotion"
-        app:layout_constraintVertical_bias="0.158" />
+        tools:layout_editor_absoluteX="30dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

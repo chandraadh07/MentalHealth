@@ -143,12 +143,9 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         // Uses xyz distance formula to calculate which provision(s) the user's emotion score
         // is closest to on a 3d plane of boredom, stress, and loneliness.
         var provisionCoords = mapOf<String, List<Double>>(
-//            "attachment" to listOf(15.0, 70.0, 15.0), "integration" to listOf(20.0, 40.0, 40.0),
-//            "alliance" to listOf(35.0, 35.0, 30.0), "reassurance" to listOf(35.0, 45.0, 30.0),
-//            "nurturance" to listOf(45.0, 40.0, 15.0), "guidance" to listOf(35.0, 20.0, 45.0)
-            "attachment" to listOf(15.0, 0.0, 85.0), "integration" to listOf(20.0, 40.0, 40.0),
-            "alliance" to listOf(0.0, 30.0, 70.0), "reassurance" to listOf(35.0, 45.0, 30.0),
-            "nurturance" to listOf(50.0, 50.0, 0.0), "guidance" to listOf(0.0, 0.0, 100.0)
+            "attachment" to listOf(15.0, 70.0, 15.0), "integration" to listOf(20.0, 40.0, 40.0),
+            "alliance" to listOf(35.0, 40.0, 25.0), "reassurance" to listOf(35.0, 45.0, 30.0),
+            "nurturance" to listOf(45.0, 40.0, 15.0), "guidance" to listOf(35.0, 20.0, 45.0)
         )
 
         // Create x,y,z coordinate for user's emotion scores
