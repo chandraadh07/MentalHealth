@@ -54,25 +54,24 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
         val hobFromPref = sharedPreferences?.getString("hobbies", "")!!
 
         //adding to the preference string
-        var hobbyString = ""
-        var hobbyPreferences = ""
+        var hobbyString :String = ""
+        var hobbyPreferences :String= ""
         if (hobFromPref == "") {
             hobbyString = hobby
             hobbyPreferences = hobby
         }
         else{
             hobbyString = hobFromPref.replace(","," ") + " "+ hobby
-            hobbyPreferences = hobFromPref + "," + hobby
+            hobbyPreferences = "$hobFromPref,$hobby"
         }
 
-        Log.d("PREFS","string hobbies: " + hobbyString)
-        Log.d("PREFS", "preferences: " + hobbyPreferences)
+        Log.d("PREFS", "string hobbies: $hobbyString")
+        Log.d("PREFS", "preferences: $hobbyPreferences")
 
         // assigns the current mood to the mood preference
         val editor = sharedPreferences.edit()
-        editor?.apply{
-            putString("hobbies", hobbyPreferences)
-        }?.apply()
+        editor.putString("hobbies",hobbyPreferences)
+        editor.apply()
 
         // updating text
         hobby_text.text = hobbyString

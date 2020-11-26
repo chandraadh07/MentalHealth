@@ -82,11 +82,11 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         }
 
         // get user hobbies
-        val hobbiesFilter = sharedPreferences.getString("hobbies", "")!!.
-            split(",")
+        val hobbies = sharedPreferences.getString("hobbies", "")!!.toByteArray()
+        val hobbiesFilter = String(hobbies).split(",")
 
         // get user mood
-        val moodsFilter = sharedPreferences.getString("moods", "")!!
+        val moodsFilter = sharedPreferences.getString("moods", "")!!.toString()
 
         Log.e("pref","prov$provFilter\nhob$hobbiesFilter\nmood$moodsFilter")
 
@@ -119,13 +119,15 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         }
 
 
-        val allIntersection =  filteredByProv.intersect(filteredByHobby).intersect(filteredByMood).toList()
-        val provAndHobIntersection = filteredByProv.intersect(filteredByHobby).toList()
+        val allIntersection =  filteredByProv.intersect(filteredByHobby).intersect(filteredByMood).toList().shuffled()
+        val provAndHobIntersection = filteredByProv.intersect(filteredByHobby).toList().shuffled()
         val allUnion = (filteredByProv.union(filteredByHobby).union(filteredByMood)).toList().shuffled()
 
-        if (allIntersection.size>=10)
+        if (allIntersection.size>=10){
+            Log.e("FILTER","filter 1: ${allIntersection.size}")
             return viewModel.idsToVideos(allIntersection.slice(0..9))
-        else if (provAndHobIntersection.size >= 10) {
+        }else if (provAndHobIntersection.size >= 10) {
+                Log.e("FILTER","filter 2: ${provAndHobIntersection.size}")
                 return viewModel.idsToVideos(provAndHobIntersection.slice(0..9))
         }
         else {
@@ -133,6 +135,7 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
             val left = allUnion.subtract(result)
             var toAdd = 10-result.size
             result.addAll(left.toList().slice(0..toAdd))
+            Log.e("FILTER","filter 3: ${result.size}")
             return viewModel.idsToVideos(result.toList())
         }
     }
