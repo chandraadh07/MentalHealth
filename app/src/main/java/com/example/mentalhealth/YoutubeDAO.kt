@@ -42,16 +42,16 @@ fun getVideoByID(id:String):Video
 //    2. find videos with similar 5 hobbies (individually)
 //    3. find videos with similar 1 mood
 
-@Query("SELECT videoID FROM videoTable WHERE provisions LIKE '%' || :prov1 || '%' AND provisions LIKE  '%' || :prov2 || '%'")//" AND provisions LIKE :prov3")
+@Query("SELECT videoID FROM videoTable WHERE provisions LIKE '%' || :prov1 || '%' AND provisions LIKE  '%' || :prov2 || '%' AND isWatched = 0")//" AND provisions LIKE :prov3")
 fun filterByProvisions(prov1: String,prov2: String) :Array<String>
 
-@Query("SELECT videoID FROM videoTable WHERE keywords LIKE '%' || :hobby || +'%'")
+@Query("SELECT videoID FROM videoTable WHERE keywords LIKE '%' || :hobby || +'%' AND isWatched = 0")
 fun filterByHobby(hobby: String) :Array<String>
 
 
-@Query("SELECT keywords, videoID FROM videoTable")
+@Query("SELECT keywords, videoID FROM videoTable WHERE isWatched = 0")
 fun filter() :Array<NameTuple>
 
-@Query("SELECT videoID FROM videoTable WHERE moods LIKE '%' || :mood || '%'")
+@Query("SELECT videoID FROM videoTable WHERE moods LIKE '%' || :mood || '%' AND isWatched = 0")
 fun filterByMood(mood: String) :Array<String>
 }

@@ -82,16 +82,19 @@ class MainActivity : AppCompatActivity() {
             R.id.Questionnaire_menu -> {
                 NavHostFragment.findNavController(nav_host_frag)
                     .navigate(R.id.action_global_buttonsFragment) //change this later
+                item.title = "Check-Ins"
                 true
             }
             R.id.home_menu -> {
                 NavHostFragment.findNavController(nav_host_frag)
                     .navigate(R.id.action_global_homeFragment) //change this later
+                item.title = "Home feed"
                 true
             }
             R.id.history_menu -> {
                 NavHostFragment.findNavController(nav_host_frag)
                     .navigate(R.id.action_global_historyFragment) //change this later
+                item.title = "History feed"
                 true
             }
 
