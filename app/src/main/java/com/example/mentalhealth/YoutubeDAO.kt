@@ -35,6 +35,12 @@ interface YoutubeDAO {
     fun deleteAll()
 
 
+    @Query("SELECT Count(1) FROM videoTable WHERE isLiked == 1 AND videoID = :id")
+    fun isLiked(id:String):Int
+
+    @Query("SELECT Count(1) FROM videoTable where isDisliked == 1 AND videoID = :id")
+    fun isDisliked(id:String):Int
+
 
     @Query("SELECT * FROM videoTable WHERE videoID = :id")
 fun getVideoByID(id:String):Video

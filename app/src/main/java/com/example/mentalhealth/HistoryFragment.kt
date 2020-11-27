@@ -49,21 +49,25 @@ class HistoryFragment : Fragment() {
 
 }
 
-// CODE FOR RECYCLER VIEW
-
-fun videoItemClicked(video: Video) {
-    viewModel.setCurrentVideo(video)
-    findNavController().navigate(R.id.action_global_videosFragment)
-}
-
-
-override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history, container, false)
+    fun videoItemClicked(video: Video) {
+        viewModel.setCurrentVideo(video)
+        findNavController().navigate(R.id.action_global_videosFragment)
     }
 
 
+    override fun onCreateView(
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
+            // Inflate the layout for this fragment
+            return inflater.inflate(R.layout.fragment_history, container, false)
+        }
+
+    fun isLiked(videoId:String): Boolean {
+        return viewModel.isLikedOrDisliked(videoId,askIsLiked = true)
+    }
+
+    fun isDisliked(videoId:String): Boolean {
+        return viewModel.isLikedOrDisliked(videoId,askIsLiked = false)
+    }
 }

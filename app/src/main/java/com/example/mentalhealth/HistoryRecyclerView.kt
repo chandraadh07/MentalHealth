@@ -15,11 +15,14 @@ import java.math.BigDecimal
 
 
 class HistoryRecyclerView(
+
+
     var watchedArray: Array<Video>,
     home: HistoryFragment,
     var clickListener: (Video) -> Unit
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     val home = home
     lateinit var youTubePlayerView:YouTubePlayerView
 
@@ -27,16 +30,18 @@ class HistoryRecyclerView(
         val viewItem =
             LayoutInflater.from(parent.context).inflate(R.layout.history_videos_view, parent, false)
 
-        return ViewHolder(viewItem) //, youTubePlayerView)
+        return ViewHolder(viewItem,home) //, youTubePlayerView)
     }
+
 
     override fun getItemCount(): Int {
         return watchedArray.size
     }
 
-    class ViewHolder(val viewItem: View) : RecyclerView.ViewHolder(
+    class ViewHolder(val viewItem: View, home: HistoryFragment) : RecyclerView.ViewHolder(
         viewItem
     ){
+        val home = home
         val apimanager = ThumbnailLoader()
         //val youTubePlayerView = youTubePlayerView
 
@@ -45,29 +50,35 @@ class HistoryRecyclerView(
 
             apimanager.fetchGetThumbnail(videoId,imageView = viewItem.findViewById(R.id.youtube_thumbnailHistory))
             viewItem.findViewById<TextView>(R.id.texttittleHistory).text = video.title
-            viewItem.findViewById<TextView>(R.id.textdurationHistory).text = splitToComponentTimes(video.duration.toBigDecimal())
+            viewItem.findViewById<TextView>(R.id.textLikedHistory).text = isLikedOrDisliked(video)
 
             viewItem.setOnClickListener{
                 clickListener(video)
-
             }
-
+        }
+        private fun isLikedOrDisliked(video: Video) : String {
+            return if (home.isLiked(video.videoID))   {
+                "You liked this video!"
+            } else if (home.isDisliked(video.videoID)){
+                "You disliked this video!"
+            } else
+                ""
         }
 
-        fun splitToComponentTimes(biggy: BigDecimal): String {
-            var time = ""
-            val longVal: Long = biggy.longValueExact()
-            val hours = longVal.toInt() / 3600
-            var remainder = longVal.toInt() - hours * 3600
-            val mins = remainder / 60
-            if (hours!=0){
-                time = "$hours hours and $mins minutes"
-            }
-            else{
-                time = "$mins minutes"
-            }
-            return time
-        }
+//        fun splitToComponentTimes(biggy: BigDecimal): String {
+//            var time = ""
+//            val longVal: Long = biggy.longValueExact()
+//            val hours = longVal.toInt() / 3600
+//            var remainder = longVal.toInt() - hours * 3600
+//            val mins = remainder / 60
+//            if (hours!=0){
+//                time = "$hours hours and $mins minutes"
+//            }
+//            else{
+//                time = "$mins minutes"
+//            }
+//            return time
+//        }
 
     }
 

@@ -15,6 +15,7 @@ import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 import androidx.core.content.edit
 import androidx.core.text.trimmedLength
 import androidx.navigation.fragment.findNavController
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 import kotlinx.android.synthetic.main.fragment_hobbies.*
 
 class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
@@ -137,4 +138,6 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_hobbies, container, false)
     }
+
+
 }

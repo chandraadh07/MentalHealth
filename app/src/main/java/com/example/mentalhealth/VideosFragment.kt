@@ -56,7 +56,6 @@ class VideosFragment : Fragment() {
         // makes the video liked in the database
         like_button.setOnClickListener {
             viewModel.database.value?.youtubeDAO()?.like(id)
-            //Toast.makeText(activity, "you liked this video", Toast.LENGTH_SHORT).show()
             val toast = Toast(context)
             toast.duration = Toast.LENGTH_SHORT
 
@@ -69,9 +68,6 @@ class VideosFragment : Fragment() {
         //makes the video disliked in the database
         dislike_button.setOnClickListener {
             viewModel.database.value?.youtubeDAO()?.dislike(id)
-//            Toast.makeText(activity, "you disliked this video", Toast.LENGTH_SHORT).show()
-            viewModel.database.value?.youtubeDAO()?.like(id)
-            //Toast.makeText(activity, "you liked this video", Toast.LENGTH_SHORT).show()
             val toast = Toast(context)
             toast.duration = Toast.LENGTH_SHORT
 
