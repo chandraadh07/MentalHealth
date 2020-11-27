@@ -1,4 +1,5 @@
 package com.example.mentalhealth
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,7 @@ class AppViewModel: ViewModel() {
 
     // which question fragment has most recently been completed
     val currentQuestionFrag = MutableLiveData<String>()
+
 
     init {
         currentQuestionFrag.value = ""
@@ -86,7 +88,10 @@ class AppViewModel: ViewModel() {
             val result = mutableListOf<String>()
             // here I'm adding a new filter list to test if the DAO query will recognize these strings
             val filter2 = listOf<String>("cat","animal","dog","pet","kitten")
-            filter2.forEach{ // was originally = filter.forEach
+
+
+
+            filter.forEach{ // was originally = filter.forEach
                 val hobby:String = it
                 val IDs = database.value?.youtubeDAO()?.filterByHobby(hobby)?.toList()!!
                 Log.e("VIEW","$hobby results:\n${IDs.size}")

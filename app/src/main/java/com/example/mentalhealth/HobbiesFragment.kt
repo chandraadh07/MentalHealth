@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView
 import androidx.core.content.edit
+import androidx.core.text.trimmedLength
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_hobbies.*
 
@@ -47,26 +48,34 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
 
         val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
 
-        val hobby:String = adapter?.getItemAtPosition(position).toString() // The item that was clicked
+        val hobby:String = adapter?.getItemAtPosition(position).toString().trim() // The item that was clicked
 
         autoTextView.setText("")
+
+        Log.d("len", "hobby looks like: |" + hobby + "|")
+        Log.d("len", "trimmed hobby looks like: |" + hobby.trim() + "|")
+
+        Log.d("len", "untrimmed length = " + hobby.length.toString())
+        Log.d("len", "trimmed length = " + hobby.trimmedLength().toString())
+
+        Log.d("len", "is trimmed thing the same: "+(hobby.trim() == "cat").toString())
+        Log.d("len", "is untrimmed thing the same: "+ (hobby == "cat").toString())
 
         val hobFromPref = sharedPreferences?.getString("hobbies", "")!!
 
         //adding to the preference string
-        var hobbyString :String = ""
-        var hobbyPreferences :String= ""
+        var hobbyString = ""
+        var hobbyPreferences = ""
         if (hobFromPref == "") {
+            Log.d("PREFS", "hobby prefs empty")
             hobbyString = hobby
             hobbyPreferences = hobby
         }
         else{
+            Log.d("PREFS", "hobby prefs not empty")
             hobbyString = hobFromPref.replace(","," ") + " "+ hobby
             hobbyPreferences = "$hobFromPref,$hobby"
         }
-
-        Log.d("PREFS", "string hobbies: $hobbyString")
-        Log.d("PREFS", "preferences: $hobbyPreferences")
 
         // assigns the current mood to the mood preference
         val editor = sharedPreferences.edit()
@@ -100,6 +109,16 @@ class HobbiesFragment : Fragment(), AdapterView.OnItemClickListener  {
     fun deleteHobbies(){
         // finding preferences
         val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
+
+        val hobs = sharedPreferences?.getString("hobbies", "")!!
+
+
+        if (hobs == "cat"){
+            Log.d("COMPARING", hobs + " matches string 'cat'")
+        } else {
+            Log.d("COMPARING", hobs)
+            Log.d("COMPARING", hobs.length.toString())
+        }
 
         // removing the hobbies from the preferences
         val editor = sharedPreferences?.edit()

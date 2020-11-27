@@ -55,9 +55,7 @@ class RecRecyclerView(
             //viewItem.layoutParams.height = viewItem.layoutParams.height* 9 /16;
 //            viewItem.findViewById<YouTubePlayerView>(R.id.youtube_player_view_item).// = video.videoID
             viewItem.setOnClickListener{
-                Log.d("test", "before")
                 clickListener(video)
-                Log.d("test", "after")
             }
 
         }
