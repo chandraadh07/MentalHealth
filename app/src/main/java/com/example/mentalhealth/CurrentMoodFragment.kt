@@ -33,51 +33,158 @@ class CurrentMoodFragment : Fragment() {
         btnExcited.setOnClickListener{
             mood = "excited"
             text_emotion.text = "You feel " + mood + " right now"
+
+            btnExcited.alpha = 1F
+            btnHappy.alpha = 0.2F
+            btnCalm.alpha = 0.2F
+            btnAngry.alpha = 0.2F
+            btnSurprised.alpha = 0.2F
+            btnSad.alpha = 0.2F
+            btnConfused.alpha = 0.2F
+            btnGrateful.alpha = 0.2F
+            btnSleepy.alpha = 0.2F
+
+            saveData()
         }
 
         btnHappy.setOnClickListener{
             mood = "happy"
             text_emotion.text = "You feel " + mood + " right now"
+
+            btnExcited.alpha = 0.2F
+            btnHappy.alpha = 1F
+            btnCalm.alpha = 0.2F
+            btnAngry.alpha = 0.2F
+            btnSurprised.alpha = 0.2F
+            btnSad.alpha = 0.2F
+            btnConfused.alpha = 0.2F
+            btnGrateful.alpha = 0.2F
+            btnSleepy.alpha = 0.2F
+
+            saveData()
         }
 
         btnCalm.setOnClickListener{
             mood = "calm"
             text_emotion.text = "You feel " + mood + " right now"
+
+            btnExcited.alpha = 0.2F
+            btnHappy.alpha = 0.2F
+            btnCalm.alpha = 1F
+            btnAngry.alpha = 0.2F
+            btnSurprised.alpha = 0.2F
+            btnSad.alpha = 0.2F
+            btnConfused.alpha = 0.2F
+            btnGrateful.alpha = 0.2F
+            btnSleepy.alpha = 0.2F
+
+            saveData()
         }
 
         btnAngry.setOnClickListener{
             mood = "angry"
             text_emotion.text = "You feel " + mood + " right now"
+
+            btnExcited.alpha = 0.2F
+            btnHappy.alpha = 0.2F
+            btnCalm.alpha = 0.2F
+            btnAngry.alpha = 1F
+            btnSurprised.alpha = 0.2F
+            btnSad.alpha = 0.2F
+            btnConfused.alpha = 0.2F
+            btnGrateful.alpha = 0.2F
+            btnSleepy.alpha = 0.2F
+
+            saveData()
         }
 
         btnSurprised.setOnClickListener{
             mood = "surprised"
             text_emotion.text = "You feel " + mood + " right now"
+
+            btnExcited.alpha = 0.2F
+            btnHappy.alpha = 0.2F
+            btnCalm.alpha = 0.2F
+            btnAngry.alpha = 0.2F
+            btnSurprised.alpha = 1F
+            btnSad.alpha = 0.2F
+            btnConfused.alpha = 0.2F
+            btnGrateful.alpha = 0.2F
+            btnSleepy.alpha = 0.2F
+
+            saveData()
         }
 
         btnSad.setOnClickListener{
             mood = "sad"
             text_emotion.text = "You feel " + mood + " right now"
+
+            btnExcited.alpha = 0.2F
+            btnHappy.alpha = 0.2F
+            btnCalm.alpha = 0.2F
+            btnAngry.alpha = 0.2F
+            btnSurprised.alpha = 0.2F
+            btnSad.alpha = 1F
+            btnConfused.alpha = 0.2F
+            btnGrateful.alpha = 0.2F
+            btnSleepy.alpha = 0.2F
+
+            saveData()
         }
 
         btnGrateful.setOnClickListener{
             mood = "grateful"
             text_emotion.text = "You feel " + mood + " right now"
+
+            btnExcited.alpha = 0.2F
+            btnHappy.alpha = 0.2F
+            btnCalm.alpha = 0.2F
+            btnAngry.alpha = 0.2F
+            btnSurprised.alpha = 0.2F
+            btnSad.alpha = 0.2F
+            btnConfused.alpha = 0.2F
+            btnGrateful.alpha = 1F
+            btnSleepy.alpha = 0.2F
+
+            saveData()
         }
 
         btnConfused.setOnClickListener{
             mood = "confused"
             text_emotion.text = "You feel " + mood + " right now"
+
+            btnExcited.alpha = 0.2F
+            btnHappy.alpha = 0.2F
+            btnCalm.alpha = 0.2F
+            btnAngry.alpha = 0.2F
+            btnSurprised.alpha = 0.2F
+            btnSad.alpha = 0.2F
+            btnConfused.alpha = 1F
+            btnGrateful.alpha = 0.2F
+            btnSleepy.alpha = 0.2F
+
+            saveData()
         }
 
         btnSleepy.setOnClickListener{
             mood = "tired"
             text_emotion.text = "You feel " + mood + " right now"
+
+            btnExcited.alpha = 0.2F
+            btnHappy.alpha = 0.2F
+            btnCalm.alpha = 0.2F
+            btnAngry.alpha = 0.2F
+            btnSurprised.alpha = 0.2F
+            btnSad.alpha = 0.2F
+            btnConfused.alpha = 0.2F
+            btnGrateful.alpha = 0.2F
+            btnSleepy.alpha = 1F
+
+            saveData()
         }
 
         //check in data saved when next button clicked
         btnMoodCheckIns.setOnClickListener{
-            saveData()
             findNavController().navigate(R.id.action_global_buttonsFragment)
         }
     }
@@ -88,15 +195,123 @@ class CurrentMoodFragment : Fragment() {
 
         //getting the emotion from preferences and setting the text to have it
         when (sharedPreferences?.getString("mood", "")){
-            "excited" -> mood = "excited"
-            "happy" -> mood = "happy"
-            "calm" -> mood = "calm"
-            "angry" -> mood = "angry"
-            "surprised" -> mood = "surprised"
-            "sad" -> mood = "sad"
-            "grateful" -> mood = "grateful"
-            "confused" -> mood = "confused"
-            "tired" -> mood = "tired"
+            "excited" -> {
+                mood = "excited"
+
+                btnExcited.alpha = 1F
+                btnHappy.alpha = 0.2F
+                btnCalm.alpha = 0.2F
+                btnAngry.alpha = 0.2F
+                btnSurprised.alpha = 0.2F
+                btnSad.alpha = 0.2F
+                btnConfused.alpha = 0.2F
+                btnGrateful.alpha = 0.2F
+                btnSleepy.alpha = 0.2F
+            }
+            "happy" -> {
+                mood = "happy"
+
+                btnExcited.alpha = 0.2F
+                btnHappy.alpha = 1F
+                btnCalm.alpha = 0.2F
+                btnAngry.alpha = 0.2F
+                btnSurprised.alpha = 0.2F
+                btnSad.alpha = 0.2F
+                btnConfused.alpha = 0.2F
+                btnGrateful.alpha = 0.2F
+                btnSleepy.alpha = 0.2F
+            }
+            "calm" -> {
+                mood = "calm"
+
+                btnExcited.alpha = 0.2F
+                btnHappy.alpha = 0.2F
+                btnCalm.alpha = 1F
+                btnAngry.alpha = 0.2F
+                btnSurprised.alpha = 0.2F
+                btnSad.alpha = 0.2F
+                btnConfused.alpha = 0.2F
+                btnGrateful.alpha = 0.2F
+                btnSleepy.alpha = 0.2F
+            }
+            "angry" -> {
+                mood = "angry"
+
+                btnExcited.alpha = 0.2F
+                btnHappy.alpha = 0.2F
+                btnCalm.alpha = 0.2F
+                btnAngry.alpha = 1F
+                btnSurprised.alpha = 0.2F
+                btnSad.alpha = 0.2F
+                btnConfused.alpha = 0.2F
+                btnGrateful.alpha = 0.2F
+                btnSleepy.alpha = 0.2F
+            }
+            "surprised" -> {
+                mood = "surprised"
+
+                btnExcited.alpha = 0.2F
+                btnHappy.alpha = 0.2F
+                btnCalm.alpha = 0.2F
+                btnAngry.alpha = 0.2F
+                btnSurprised.alpha = 1F
+                btnSad.alpha = 0.2F
+                btnConfused.alpha = 0.2F
+                btnGrateful.alpha = 0.2F
+                btnSleepy.alpha = 0.2F
+            }
+            "sad" -> {
+                mood = "sad"
+
+                btnExcited.alpha = 0.2F
+                btnHappy.alpha = 0.2F
+                btnCalm.alpha = 0.2F
+                btnAngry.alpha = 0.2F
+                btnSurprised.alpha = 0.2F
+                btnSad.alpha = 1F
+                btnConfused.alpha = 0.2F
+                btnGrateful.alpha = 0.2F
+                btnSleepy.alpha = 0.2F
+            }
+            "grateful" -> {
+                mood = "grateful"
+
+                btnExcited.alpha = 0.2F
+                btnHappy.alpha = 0.2F
+                btnCalm.alpha = 0.2F
+                btnAngry.alpha = 0.2F
+                btnSurprised.alpha = 0.2F
+                btnSad.alpha = 0.2F
+                btnConfused.alpha = 0.2F
+                btnGrateful.alpha = 1F
+                btnSleepy.alpha = 0.2F
+            }
+            "confused" -> {
+                mood = "confused"
+
+                btnExcited.alpha = 0.2F
+                btnHappy.alpha = 0.2F
+                btnCalm.alpha = 0.2F
+                btnAngry.alpha = 0.2F
+                btnSurprised.alpha = 0.2F
+                btnSad.alpha = 0.2F
+                btnConfused.alpha = 1F
+                btnGrateful.alpha = 0.2F
+                btnSleepy.alpha = 0.2F
+            }
+            "tired" -> {
+                mood = "tired"
+
+                btnExcited.alpha = 0.2F
+                btnHappy.alpha = 0.2F
+                btnCalm.alpha = 0.2F
+                btnAngry.alpha = 0.2F
+                btnSurprised.alpha = 0.2F
+                btnSad.alpha = 0.2F
+                btnConfused.alpha = 0.2F
+                btnGrateful.alpha = 0.2F
+                btnSleepy.alpha = 1F
+            }
         }
         if (mood != ""){
             text_emotion.text = "You feel " + mood + " right now"

@@ -54,6 +54,10 @@ class ButtonsFragment : Fragment() {
             findNavController().navigate(R.id.action_buttonsFragment_to_hobbiesFragment)
         }
 
+        btnHome.setOnClickListener{
+            findNavController().navigate(R.id.action_global_homeFragment)
+        }
+
         more_info.setOnClickListener { seeMoreInfoDialog() }
     }
 

@@ -33,7 +33,7 @@ class WelcomeFragment : Fragment() {
         }?.apply()
 
         btnToProceed.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_global_buttonsFragment)
         }
     }
 

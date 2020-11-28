@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:background="#00FFFFFF"
         android:elevation="20dp"
-        app:cardBackgroundColor="@color/colorMint"
+        app:cardBackgroundColor="@color/purple"
         app:cardCornerRadius="35dp">
 
         <LinearLayout

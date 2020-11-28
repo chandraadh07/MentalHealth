@@ -13,9 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="40dp"
-        android:layout_marginBottom="90dp"
+        android:layout_marginBottom="60dp"
         android:layout_weight="7"
         android:orientation="vertical">
 <!--        android:background="@drawable/forquestions"-->
@@ -31,12 +31,34 @@
             android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:layout_weight=".2"
             android:textColor="@color/colorText"
             android:textAlignment="center"
             android:text="Do you want to tell us more about you?"
             android:textSize="32sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="15dp"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_weight=".2"
+            android:elevation="15dp"
+            app:cardBackgroundColor="@color/colorMint"
+            app:cardCornerRadius="25dp">
+            <Button
+                android:id="@+id/btnQuiz"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#00FFFFFF"
+                android:textColor="@color/colorText"
+                android:text="Questionnaire"
+                android:textSize="30sp" />
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_margin="15dp"
@@ -60,6 +82,7 @@
                 android:textColor="@color/colorText"
                 android:textSize="30sp" />
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_margin="15dp"
             android:layout_width="300dp"
@@ -80,25 +103,30 @@
                 android:text="Mood Status"
                 android:textSize="30sp" />
         </androidx.cardview.widget.CardView>
+
+
+
         <androidx.cardview.widget.CardView
             android:layout_margin="15dp"
             android:layout_width="300dp"
             android:layout_height="60dp"
-            android:layout_weight=".2"
+            android:layout_weight="2"
             android:elevation="15dp"
-            app:cardBackgroundColor="@color/colorMint"
+            app:cardBackgroundColor="@color/purple"
             app:cardCornerRadius="25dp">
+
             <Button
-                android:id="@+id/btnQuiz"
+                android:id="@+id/btnHome"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:background="#00FFFFFF"
+                android:text="Watch videos"
                 android:textColor="@color/colorText"
-                android:text="Questionnaire"
                 android:textSize="30sp" />
+
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
