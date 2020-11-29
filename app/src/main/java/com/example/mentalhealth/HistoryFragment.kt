@@ -10,7 +10,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_buttons.*
 import kotlinx.android.synthetic.main.fragment_history.*
+import kotlinx.android.synthetic.main.fragment_history.buttonNavigation
 
 
 private const val ARG_PARAM1 = "param1"
@@ -45,9 +47,22 @@ class HistoryFragment : Fragment() {
     recycler_view_history.layoutManager = viewManager
     recycler_view_history.adapter = viewAdapter
 
+        buttonNavigation.setOnNavigationItemSelectedListener {
+            if (it.itemId == R.id.home_menu){
+                findNavController().navigate(R.id.action_global_homeFragment)
+            }
+            if (it.itemId == R.id.history_menu){
+                findNavController().navigate(R.id.action_global_historyFragment)
+            }
+            if (it.itemId == R.id.Questionnaire_menu){
+                findNavController().navigate(R.id.action_global_buttonsFragment)
+            }
 
-
+            true
+        }
 }
+
+
 
     fun videoItemClicked(video: Video) {
         viewModel.setCurrentVideo(video)

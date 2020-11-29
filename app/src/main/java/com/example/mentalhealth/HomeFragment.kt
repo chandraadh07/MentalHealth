@@ -11,7 +11,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import kotlinx.android.synthetic.main.fragment_buttons.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.buttonNavigation
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -46,6 +48,20 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
         recycler_view.adapter = viewAdapter
         recycler_view.layoutManager = viewManager
         recycler_view.adapter = viewAdapter
+
+        buttonNavigation.setOnNavigationItemSelectedListener {
+            if (it.itemId == R.id.home_menu){
+                findNavController().navigate(R.id.action_global_homeFragment)
+            }
+            if (it.itemId == R.id.history_menu){
+                findNavController().navigate(R.id.action_global_historyFragment)
+            }
+            if (it.itemId == R.id.Questionnaire_menu){
+                findNavController().navigate(R.id.action_global_buttonsFragment)
+            }
+
+            true
+        }
     }
 
 

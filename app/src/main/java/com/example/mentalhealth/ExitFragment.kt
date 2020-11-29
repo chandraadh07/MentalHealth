@@ -36,7 +36,7 @@ class ExitFragment : Fragment() {
         }
 
         btnVIDEOS.setOnClickListener {
-            findNavController().navigate(R.id.action_global_homeFragment)
+            findNavController().navigate(R.id.action_global_buttonsFragment)
         }
     }
 

@@ -8,9 +8,11 @@
     <color name= "colorText">#302F2F</color>
 
     <color name="colorMint">#84DCC6</color>
+    <color name="lightMint">#B0F0E0</color>
     <color name="colorPinkLight">#FFA69E</color>
     <color name="colorPinkDark">#FF686B</color>
     <color name="colorYellow">#FFDF8C</color>
     <color name="colorLight">#E8E7DC</color>
     <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>

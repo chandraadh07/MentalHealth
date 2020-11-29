@@ -28,15 +28,6 @@ class MainActivity : AppCompatActivity() {
         if (list.isNullOrEmpty()){
             loadData()
         }
-
-        Log.e("TAG", "MainActivity was created")
-
-//        list?.forEach {
-//            Log.e(
-//                "TAG",
-//                it.videoID
-//            )//arrayOf(viewModel.database.value?.youtubeDAO()?.getVideoByID("-1io3Ofg8sE")!!)//getRecommendations()
-//        }
     }
 
     //creates a YT vid for everything in the csv
@@ -71,7 +62,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.menu_home, menu)
@@ -88,13 +78,13 @@ class MainActivity : AppCompatActivity() {
             R.id.home_menu -> {
                 NavHostFragment.findNavController(nav_host_frag)
                     .navigate(R.id.action_global_homeFragment) //change this later
-                item.title = "Home feed"
+                item.title = "My Videos"
                 true
             }
             R.id.history_menu -> {
                 NavHostFragment.findNavController(nav_host_frag)
                     .navigate(R.id.action_global_historyFragment) //change this later
-                item.title = "History feed"
+                item.title = "Watched Videos"
                 true
             }
 
@@ -102,6 +92,4 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-
 }

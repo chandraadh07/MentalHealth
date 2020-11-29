@@ -59,6 +59,20 @@ class ButtonsFragment : Fragment() {
         }
 
         more_info.setOnClickListener { seeMoreInfoDialog() }
+
+        buttonNavigation.setOnNavigationItemSelectedListener {
+            if (it.itemId == R.id.home_menu){
+                findNavController().navigate(R.id.action_global_homeFragment)
+            }
+            if (it.itemId == R.id.history_menu){
+                findNavController().navigate(R.id.action_global_historyFragment)
+            }
+            if (it.itemId == R.id.Questionnaire_menu){
+                findNavController().navigate(R.id.action_global_buttonsFragment)
+            }
+
+            true
+        }
     }
 
     override fun onCreateView(
