@@ -43,11 +43,9 @@ class Question2Fragment : Fragment() {
         val sharedPreferences = activity?.getSharedPreferences("checkIns", Context.MODE_PRIVATE)
         //making buttons show what they did before
         when (sharedPreferences?.getFloat("r1", 0.0F)){
-            1.0F -> q_SD.isChecked = true
-            2.0F -> q_D.isChecked = true
-            3.0F -> q_N.isChecked = true
-            4.0F -> q_A.isChecked = true
-            5.0F -> q_SA.isChecked = true
+            1.0F -> a_Sch.isChecked = true
+            2.0F -> a_Fri.isChecked = true
+            3.0F -> a_Fam.isChecked = true
         }
     }
 
@@ -57,11 +55,9 @@ class Question2Fragment : Fragment() {
 
         var r1 = 0.0F
         when {
-            q_SD.isChecked -> r1 = 1.0F
-            q_D.isChecked -> r1 = 2.0F
-            q_N.isChecked -> r1 = 3.0F
-            q_A.isChecked -> r1 = 4.0F
-            q_SA.isChecked -> r1 = 5.0F
+            a_Sch.isChecked -> r1 = 1.0F
+            a_Fri.isChecked -> r1 = 2.0F
+            a_Fam.isChecked -> r1 = 3.0F
         }
 
         val editor = sharedPreferences?.edit()

@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Question2Fragment">
-
     <Button
         android:id="@+id/exit2"
         android:elevation="5dp"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity="left"
+        android:textColor="@color/colorText"
         android:layout_margin="20dp"
         android:background="@drawable/roundbutons"
         android:text="X"
@@ -25,6 +25,7 @@
         android:id="@+id/q2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Question 2/3"
         android:textColor="@color/colorText"
         android:textSize="20dp"
@@ -34,30 +35,42 @@
         app:layout_constraintTop_toBottomOf="@+id/exit2" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:text="Choose the answer that rings\ntrue for you."
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/q2"
+        app:layout_constraintVertical_bias="0.31" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
         android:layout_marginRight="30dp"
-        android:elevation="10dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/forquestions"
+        android:elevation="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/next2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/q2">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/txtQuestion2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="You feel bored lately."
-            android:textSize="30dp"
-            android:textColor="@color/colorText"/>
+            android:text="Lately I miss ..."
+            android:textColor="@color/colorText"
+            android:textSize="30sp" />
 
         <RadioGroup
             android:id="@+id/rganswer2"
@@ -68,69 +81,52 @@
 
 
             <RadioButton
-                android:id="@+id/q_SD2"
+                android:id="@+id/a_Sch2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:checked="false"
-                android:text="Strongly Disagree"
-                android:textSize="30dp"
-                android:textColor="@color/colorText"/>
+                android:text="School/work/hobbies"
+                android:textColor="@color/colorText"
+                android:textSize="30sp" />
 
             <RadioButton
-                android:id="@+id/q_D2"
+                android:id="@+id/a_Fri2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
-                android:text="Disagree"
-                android:textSize="30dp"
-                android:textColor="@color/colorText"/>
+                android:text="Friends"
+                android:textColor="@color/colorText"
+                android:textSize="30sp" />
 
             <RadioButton
-                android:id="@+id/q_N2"
+                android:id="@+id/a_Fam2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
-                android:text="Neutral"
-                android:textSize="30dp"
-                android:textColor="@color/colorText"/>
-
-            <RadioButton
-                android:id="@+id/q_A2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#FFFFFF"
-                android:text="Agree"
-                android:textSize="30dp"
-                android:textColor="@color/colorText"/>
-
-            <RadioButton
-                android:id="@+id/q_SA2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#FFFFFF"
-                android:text="Strongly Agree"
-                android:textSize="30dp"
-                android:textColor="@color/colorText"/>
+                android:text="Family"
+                android:textColor="@color/colorText"
+                android:textSize="30sp" />
 
         </RadioGroup>
 
     </LinearLayout>
-
 
     <Button
         android:id="@+id/next2"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity="end|right"
-        android:layout_margin="20dp"
+        android:layout_margin="35dp"
         android:background="@drawable/roundbutons"
         android:text="Next"
-        android:textSize="20dp"
-        android:elevation="5dp"
         android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textColor="@color/colorText"
+        android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
 </androidx.constraintlayout.widget.ConstraintLayout>

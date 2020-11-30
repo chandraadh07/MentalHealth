@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#84DCC6</color>
+    <color name="colorPrimary">@color/lightMint</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="purple">#B19CD9</color>
     <color name="thumbColor">#37FFB3</color>
@@ -8,7 +8,7 @@
     <color name= "colorText">#302F2F</color>
 
     <color name="colorMint">#84DCC6</color>
-    <color name="lightMint">#B0F0E0</color>
+    <color name="lightMint">#A1EDDB</color>
     <color name="colorPinkLight">#FFA69E</color>
     <color name="colorPinkDark">#FF686B</color>
     <color name="colorYellow">#FFDF8C</color>

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_question2.*
+import kotlinx.android.synthetic.main.fragment_question3.*
 import kotlinx.android.synthetic.main.fragment_question4.*
 
 class Question4Fragment : Fragment() {
@@ -32,11 +33,9 @@ class Question4Fragment : Fragment() {
 
         //making buttons show what they did before
         when (sharedPreferences?.getFloat("r3", 0.0F)){
-            1.0F -> q_SD3.isChecked = true
-            2.0F -> q_D3.isChecked = true
-            3.0F -> q_N3.isChecked = true
-            4.0F -> q_A3.isChecked = true
-            5.0F -> q_SA3.isChecked = true
+            1.0F -> a_Sch3.isChecked = true
+            2.0F -> a_Fri3.isChecked = true
+            3.0F -> a_Fam3.isChecked = true
         }
     }
 
@@ -46,11 +45,9 @@ class Question4Fragment : Fragment() {
 
         var r3 = 0.0F
         when {
-            q_SD3.isChecked -> r3 = 1.0F
-            q_D3.isChecked -> r3 = 2.0F
-            q_N3.isChecked -> r3 = 3.0F
-            q_A3.isChecked -> r3 = 4.0F
-            q_SA3.isChecked -> r3 = 5.0F
+            a_Sch3.isChecked -> r3 = 1.0F
+            a_Fri3.isChecked -> r3 = 2.0F
+            a_Fam3.isChecked -> r3 = 3.0F
         }
 
         val editor = sharedPreferences?.edit()

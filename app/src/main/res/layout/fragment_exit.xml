@@ -9,25 +9,27 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
-        android:layout_width="wrap_content"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_margin="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="35dp"
-        android:clipToPadding="true">
+        android:elevation="15dp"
+        app:cardBackgroundColor="@color/colorMint"
+        app:cardCornerRadius="25dp">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:background="@color/colorMint"
-        android:layout_width="400dp"
-        android:layout_height="150dp"
-        android:textColor="@color/black"
-        android:text="Are you sure that you want to exit?\n\nYour progress won't be saved."
-        android:textAlignment="center"
-        android:textSize="30dp" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_margin="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Are you sure that you want to exit?\n\nYour progress won't be saved."
+            android:textAlignment="center"
+            android:textColor="@color/colorText"
+            android:textSize="30dp" />
 
     </androidx.cardview.widget.CardView>
 
@@ -40,15 +42,18 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card"
-        app:cardCornerRadius="35dp"
-        android:clipToPadding="true">
+        android:elevation="15dp"
+        app:cardBackgroundColor="@color/colorMint"
+        app:cardCornerRadius="25dp">
 
         <Button
+            android:layout_margin="10dp"
             android:id="@+id/btnCONTINUE"
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:background="@color/lightMint"
-            android:text="return to\nthe questionnaire"
+            android:textColor="@color/colorText"
+            android:background="@android:color/transparent"
+            android:text="Return to\nthe Questionnaire"
             android:textAllCaps="false"
             android:textSize="30dp" />
     </androidx.cardview.widget.CardView>
@@ -58,8 +63,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="50dp"
-        android:clipToPadding="true"
-        app:cardCornerRadius="35dp"
+        android:elevation="15dp"
+        app:cardBackgroundColor="@color/colorMint"
+        app:cardCornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -68,10 +74,12 @@
 
         <Button
             android:id="@+id/btnVIDEOS"
-            android:layout_width="200dp"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
             android:layout_height="100dp"
-            android:background="@color/lightMint"
-            android:text="go back to check-ins"
+            android:textColor="@color/colorText"
+            android:background="@android:color/transparent"
+            android:text="Go to Check-ins"
             android:textAllCaps="false"
             android:textSize="30dp" />
     </androidx.cardview.widget.CardView>

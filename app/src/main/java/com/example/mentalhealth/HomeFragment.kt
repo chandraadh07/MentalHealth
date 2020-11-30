@@ -159,45 +159,37 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
     fun findProvisions(userResults: List<Double>): List<String> {
         Log.d("tests", "entered findProvisions")
         // Matches a provision(s) with the user based on their questionnaire results.
-        // Uses xyz distance formula to calculate which provision(s) the user's emotion score
-        // is closest to on a 3d plane of boredom, stress, and loneliness.
-        var provisionCoords = mapOf<String, List<Double>>(
-            "attachment" to listOf(15.0, 70.0, 15.0), "integration" to listOf(20.0, 40.0, 40.0),
-            "alliance" to listOf(35.0, 40.0, 25.0), "reassurance" to listOf(35.0, 45.0, 30.0),
-            "nurturance" to listOf(45.0, 40.0, 15.0), "guidance" to listOf(35.0, 20.0, 45.0)
+        // Sums up scores for each pair of provisions,
+        // attachment+nurturance, alliance+integration, reassurance+guidance,
+        // and assigns a user two provisions based on highest score
+        var provisionCoords = mutableMapOf<String, Double>(
+            "reassurance guidance" to 0.0,
+            "alliance integration" to 0.0,
+            "attachment nurturance" to 0.0
         )
 
-        // Create x,y,z coordinate for user's emotion scores
-        val userCoord = listOf(
-            (userResults[0] / 15) * 100,
-            (userResults[1] / 15) * 100,
-            (userResults[2] / 15) * 100
-        )
-        val userDistances: MutableMap<String, Double> =
-            mutableMapOf()// list of distances between user score and each provision
-
-        // Calculate and store distances
-        for ((prov, coord) in provisionCoords) {
-            val x1 = userCoord[0]
-            val y1 = userCoord[1]
-            val z1 = userCoord[2]
-
-            val x2 = coord[0]
-            val y2 = coord[1]
-            val z2 = coord[2]
-
-            val result = sqrt((x2 - x1).pow(2) + (y2 - y1).pow(2) + (z2 - z1).pow(2))
-            userDistances[prov] = result
+        // Sum up provisions pair scores
+        for (prov in userResults) {
+            if (prov == 1.0) {
+                provisionCoords["reassurance guidance"] =
+                    provisionCoords["reassurance guidance"]?.plus(1.0)!!
+            } else if (prov == 2.0) {
+                provisionCoords["alliance integration"] =
+                    provisionCoords["alliance integration"]?.plus(1.0)!!
+            } else if (prov == 3.0) {
+                provisionCoords["attachment nurturance"] =
+                    provisionCoords["attachment nurturance"]?.plus(1.0)!!
+            }
         }
 
         // Sort distances ascending
-        val map = userDistances.toList()
+        val map = provisionCoords.toList()
             .sortedByDescending { (key, value) -> value }
             .toMap()
 
         // Get and return lowest two distances
-        Log.e("tests", "${map.keys.toList().slice(0..2).toList().joinToString(",")}")
-        return map.keys.toList().slice(0..2).toList()
+        Log.e("tests", "${map.keys.toList()[0].split(" ")}") //.slice(0..2).toList().joinToString(",")}")
+        return map.keys.toList()[0].split(" ")
     }
 
 

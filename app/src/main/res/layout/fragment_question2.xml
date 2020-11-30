@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Question2Fragment">
-
     <Button
         android:id="@+id/exit1"
         android:elevation="5dp"
@@ -36,28 +35,42 @@
         app:layout_constraintTop_toBottomOf="@+id/exit1" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose the answer that rings\ntrue for you."
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textSize="23sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/q1"
+        app:layout_constraintVertical_bias="0.31" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:elevation="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="25dp"
         android:layout_marginRight="30dp"
+        android:layout_marginBottom="40dp"
         android:background="@drawable/forquestions"
+        android:elevation="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/next1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/q1">
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/txtQuestion1"
             android:layout_width="wrap_content"
-            android:textColor="@color/colorText"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="You often feel stressed about school/work/friends."
+            android:text="I like to wind-down with ..."
+            android:textColor="@color/colorText"
             android:textSize="30dp" />
 
         <RadioGroup
@@ -69,62 +82,43 @@
 
 
             <RadioButton
-                android:id="@+id/q_SD"
+                android:id="@+id/a_Sch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="#FFFFFF"
                 android:checked="false"
-                android:textColor="@color/colorText"
-                android:text="Strongly Disagree"
-                android:textSize="30dp" />
-
-            <RadioButton
-                android:id="@+id/q_D"
-                android:layout_width="wrap_content"
-                android:textColor="@color/colorText"
-                android:layout_height="wrap_content"
-                android:buttonTint="#FFFFFF"
-                android:text="Disagree"
-                android:textSize="30dp" />
-
-            <RadioButton
-                android:id="@+id/q_N"
-                android:textColor="@color/colorText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#FFFFFF"
-                android:text="Neutral"
-                android:textSize="30dp" />
-
-            <RadioButton
-                android:id="@+id/q_A"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:buttonTint="#FFFFFF"
-                android:text="Agree"
+                android:text="School/work/hobbies"
                 android:textColor="@color/colorText"
                 android:textSize="30dp" />
 
             <RadioButton
-                android:id="@+id/q_SA"
+                android:id="@+id/a_Fri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorText"
                 android:buttonTint="#FFFFFF"
-                android:text="Strongly Agree"
+                android:text="Friends"
+                android:textColor="@color/colorText"
+                android:textSize="30dp" />
+
+            <RadioButton
+                android:id="@+id/a_Fam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="#FFFFFF"
+                android:text="Family"
+                android:textColor="@color/colorText"
                 android:textSize="30dp" />
 
         </RadioGroup>
 
     </LinearLayout>
 
-
     <Button
         android:id="@+id/next1"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_gravity="end|right"
-        android:layout_margin="20dp"
+        android:layout_margin="35dp"
         android:background="@drawable/roundbutons"
         android:text="Next"
         android:textAllCaps="false"

@@ -71,7 +71,8 @@
         tools:layout="@layout/fragment_welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popEnterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
         android:id="@+id/exitFragment"
@@ -120,7 +121,8 @@
         tools:layout="@layout/fragment_question4" />
     <action
         android:id="@+id/action_global_historyFragment"
-        app:destination="@id/historyFragment" />
+        app:destination="@id/historyFragment"
+        app:popEnterAnim="@anim/slide_in_right" />
     <action
         android:id="@+id/action_global_buttonsFragment"
         app:destination="@id/buttonsFragment"
@@ -129,7 +131,8 @@
         app:popEnterAnim="@anim/slide_in_right" />
     <action
         android:id="@+id/action_global_homeFragment"
-        app:destination="@id/homeFragment" />
+        app:destination="@id/homeFragment"
+        app:popEnterAnim="@anim/slide_in_right" />
     <action
         android:id="@+id/action_global_exitFragment"
         app:destination="@id/exitFragment" />
@@ -144,5 +147,9 @@
         app:destination="@id/question3Fragment" />
     <action
         android:id="@+id/action_global_videosFragment"
-        app:destination="@id/videosFragment" />
+        app:destination="@id/videosFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_right"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
 </navigation>
