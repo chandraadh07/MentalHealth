@@ -78,15 +78,7 @@
         android:id="@+id/exitFragment"
         android:name="com.example.mentalhealth.ExitFragment"
         android:label="fragment_exit"
-        tools:layout="@layout/fragment_exit" >
-        <action
-            android:id="@+id/action_exitFragment_to_hobbiesFragment"
-            app:destination="@id/hobbiesFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/slide_out_right"
-            app:popEnterAnim="@anim/slide_in_right"
-            app:popExitAnim="@anim/slide_out_left" />
-    </fragment>
+        tools:layout="@layout/fragment_exit" />
     <fragment
         android:id="@+id/buttonsFragment"
         android:name="com.example.mentalhealth.ButtonsFragment"
