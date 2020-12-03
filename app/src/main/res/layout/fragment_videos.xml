@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
@@ -25,20 +25,22 @@
             android:text="Title of Video Here"
             android:textAlignment="center"
             android:textColor="@color/colorText"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
         <FrameLayout
             android:id="@+id/video_view_container"
             android:layout_width="wrap_content"
             android:layout_height="250dp"
             android:foreground="@drawable/bg_rounde2"
-            android:outlineProvider="background">
-
+            android:outlineProvider="background"
+            android:clipChildren="true">
             <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                 android:id="@+id/youtube_player_view"
+                android:clipToPadding="true"
+                app:autoPlay="false"
+                app:showFullScreenButton="false"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:autoPlay="false" />
+                android:layout_height="match_parent" />
         </FrameLayout>
 
         <TextView
@@ -90,8 +92,9 @@
                 android:id="@+id/dislike_button"
                 android:background="@drawable/thumb"
                 android:rotation="180"
+                android:layout_marginBottom="40dp"
                 android:layout_marginLeft="4dp"
                 android:src="@drawable/thumb"/>
         </LinearLayout>
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</ScrollView>
