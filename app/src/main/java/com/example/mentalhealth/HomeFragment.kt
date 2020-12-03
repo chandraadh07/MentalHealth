@@ -123,7 +123,6 @@ class HomeFragment : Fragment(), AddLifecycleCallbackListener {
                 viewModel.filterVideos(byProv = true, filter = provFilter)!!
         }
 
-        // THIS IS THE CALL THAT LEADS TO A BUG... GO TO THE VIEWMODEL METHOD "FILTER VIDEOS"
         if (hobFilter.isNotEmpty()) {
             //filter SQL by hob
             filteredByHobby =
