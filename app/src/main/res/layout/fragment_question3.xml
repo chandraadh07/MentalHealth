@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
-        android:text="Choose the answer that rings\ntrue for you."
+        android:text="Choose the answer that's most \ntrue for you."
         android:textAlignment="center"
         android:textColor="@color/colorText"
         android:textSize="23sp"
