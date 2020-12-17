@@ -1,6 +1,6 @@
 Reconnect Android App
 
-Developed By: Ava Bartolome, Aidan David and Chandra Adhikari
+Created By: Ava Bartolome, Aidan David and Chandra Adhikari
 
 
 This project is an android application which recommends YouTube videos to a user based on their hobbies and emotional needs. 
